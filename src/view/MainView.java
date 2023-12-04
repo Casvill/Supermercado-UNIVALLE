@@ -28,6 +28,14 @@ public class MainView extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jpBuy = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jComboBox2 = new javax.swing.JComboBox<>();
+        jLabel11 = new javax.swing.JLabel();
+        jComboBox3 = new javax.swing.JComboBox<>();
+        jLabel12 = new javax.swing.JLabel();
+        jSpinner1 = new javax.swing.JSpinner();
+        jButton16 = new javax.swing.JButton();
+        jButton17 = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
@@ -106,7 +114,35 @@ public class MainView extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Yu Gothic Light", 1, 28)); // NOI18N
         jLabel2.setText("BUY");
         jpBuy.add(jLabel2);
-        jLabel2.setBounds(360, 30, 110, 60);
+        jLabel2.setBounds(330, 60, 110, 60);
+
+        jLabel10.setText("SUPPLIER:");
+        jpBuy.add(jLabel10);
+        jLabel10.setBounds(220, 170, 100, 16);
+
+        jpBuy.add(jComboBox2);
+        jComboBox2.setBounds(346, 160, 170, 26);
+
+        jLabel11.setText("PRODUCT NAME:");
+        jpBuy.add(jLabel11);
+        jLabel11.setBounds(220, 220, 100, 16);
+
+        jpBuy.add(jComboBox3);
+        jComboBox3.setBounds(346, 210, 170, 26);
+
+        jLabel12.setText("QUANTITY:");
+        jpBuy.add(jLabel12);
+        jLabel12.setBounds(220, 280, 90, 16);
+        jpBuy.add(jSpinner1);
+        jSpinner1.setBounds(350, 270, 80, 26);
+
+        jButton16.setText("jButton16");
+        jpBuy.add(jButton16);
+        jButton16.setBounds(220, 370, 130, 27);
+
+        jButton17.setText("jButton17");
+        jpBuy.add(jButton17);
+        jButton17.setBounds(410, 370, 130, 27);
 
         jTabbedPane1.addTab("BUY", jpBuy);
 
@@ -376,6 +412,8 @@ public class MainView extends javax.swing.JFrame {
     private javax.swing.JButton jButton13;
     private javax.swing.JButton jButton14;
     private javax.swing.JButton jButton15;
+    private javax.swing.JButton jButton16;
+    private javax.swing.JButton jButton17;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
@@ -385,7 +423,12 @@ public class MainView extends javax.swing.JFrame {
     private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
     private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JComboBox<String> jComboBox2;
+    private javax.swing.JComboBox<String> jComboBox3;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
@@ -407,6 +450,7 @@ public class MainView extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JSpinner jSpinner1;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextArea jTextArea2;
