@@ -1,5 +1,7 @@
 package view;
 
+import java.awt.event.ActionListener;
+
 /**
  *
  * @author Daniel Casvill
@@ -13,6 +15,142 @@ public class MainView extends javax.swing.JFrame {
         initComponents();
         setLocationRelativeTo(null);
     }
+    
+    public void setJbDeleteProduct(javax.swing.JButton jbDeleteProduct) {
+        this.jbDeleteProducts = jbDeleteProduct;}
+    
+    public void setJbListAllProducts(javax.swing.JButton jbListAllProducts) {
+        this.jbListAllProducts = jbListAllProducts;}
+    
+    public void setJbSaveProduct(javax.swing.JButton jbSaveProduct) {
+        this.jbSaveProducts = jbSaveProduct;}
+    
+    public void setJbSearchProduct(javax.swing.JButton jbSearchProduct) {
+        this.jbSearchProducts = jbSearchProduct;}
+    
+    public void setJbUpdateProduct(javax.swing.JButton jbUpdateProduct) {
+        this.jbUpdateProducts = jbUpdateProduct;}
+    
+    public javax.swing.JButton getJbDeleteProduct() {
+        return jbDeleteProducts;}
+
+    public javax.swing.JButton getJbListAllProducts() {
+        return jbListAllProducts;}
+
+    public javax.swing.JButton getJbSaveProduct() {
+        return jbSaveProducts;}
+
+    public javax.swing.JButton getJbSearchProduct() {
+        return jbSearchProducts;}
+
+    public javax.swing.JButton getJbUpdateProduct() {
+        return jbUpdateProducts;}
+
+    public void setJbDeleteCustomer(javax.swing.JButton jbDeleteCustomer) {
+        this.jbDeleteCustomers = jbDeleteCustomer;}
+
+    public void setJbListAllCustomers(javax.swing.JButton jbListAllCustomers) {
+        this.jbListAllCustomers = jbListAllCustomers;}
+
+    public void setJbSaveCustomer(javax.swing.JButton jbSaveCustomer) {
+        this.jbSaveCustomers = jbSaveCustomer;}
+
+    public void setJbSearchCustomer(javax.swing.JButton jbSearchCustomer) {
+        this.jbSearchCustomers = jbSearchCustomer;}
+
+    public void setJbUpdateCustomer(javax.swing.JButton jbUpdateCustomer) {
+        this.jbUpdateCustomers = jbUpdateCustomer;}
+
+    public javax.swing.JButton getJbDeleteCustomer() {
+        return jbDeleteCustomers;}
+
+    public javax.swing.JButton getJbListAllCustomers() {
+        return jbListAllCustomers;}
+
+    public javax.swing.JButton getJbSaveCustomer() {
+        return jbSaveCustomers;}
+
+    public javax.swing.JButton getJbSearchCustomer() {
+        return jbSearchCustomers;}
+
+    public javax.swing.JButton getJbUpdateCustomer() {
+        return jbUpdateCustomers;}
+
+    public void setJbDeleteSupplier(javax.swing.JButton jbDeleteSupplier) {
+        this.jbDeleteSuppliers = jbDeleteSupplier;}
+
+    public void setJbListAllSuppliers(javax.swing.JButton jbListAllSuppliers) {
+        this.jbListAllSuppliers = jbListAllSuppliers;}
+
+    public void setJbSaveSupplier(javax.swing.JButton jbSaveSupplier) {
+        this.jbSaveSuppliers = jbSaveSupplier;}
+
+    public void setJbSearchSupplier(javax.swing.JButton jbSearchSupplier) {
+        this.jbSearchSuppliers = jbSearchSupplier;}
+
+    public void setJbUpdateSupplier(javax.swing.JButton jbUpdateSupplier) {
+        this.jbUpdateSuppliers = jbUpdateSupplier;}
+
+    public javax.swing.JButton getJbDeleteSupplier() {
+        return jbDeleteSuppliers;}
+
+    public javax.swing.JButton getJbListAllSuppliers() {
+        return jbListAllSuppliers;}
+
+    public javax.swing.JButton getJbSaveSupplier() {
+        return jbSaveSuppliers;}
+
+    public javax.swing.JButton getJbSearchSupplier() {
+        return jbSearchSuppliers;}
+
+    public javax.swing.JButton getJbUpdateSupplier() {
+        return jbUpdateSuppliers;}
+
+    public void addBtnjbDeleteProductListener(ActionListener listenControllers) {
+        jbDeleteProducts.addActionListener(listenControllers);}
+
+    public void addBtnjbListAllProductsListener(ActionListener listenControllers) {
+        jbListAllProducts.addActionListener(listenControllers);}
+
+    public void addBtnjbSaveProductListener(ActionListener listenControllers) {
+        jbSaveProducts.addActionListener(listenControllers);}
+
+    public void addBtnjbSearchProductListener(ActionListener listenControllers) {
+        jbSearchProducts.addActionListener(listenControllers);}
+
+    public void addBtnjbUpdateProductListener(ActionListener listenControllers) {
+        jbUpdateProducts.addActionListener(listenControllers);}
+
+    public void addBtnjbDeleteCustomerListener(ActionListener listenControllers) {
+        jbDeleteCustomers.addActionListener(listenControllers);}
+
+    public void addBtnjbListAllCustomersListener(ActionListener listenControllers) {
+        jbListAllCustomers.addActionListener(listenControllers);}
+
+    public void addBtnjbSaveCustomerListener(ActionListener listenControllers) {
+        jbSaveCustomers.addActionListener(listenControllers);}
+
+    public void addBtnjbSearchCustomerListener(ActionListener listenControllers) {
+        jbSearchCustomers.addActionListener(listenControllers);}
+
+    public void addBtnjbUpdateCustomerListener(ActionListener listenControllers) {
+        jbUpdateCustomers.addActionListener(listenControllers);}
+
+    public void addBtnjbDeleteSupplierListener(ActionListener listenControllers) {
+        jbDeleteSuppliers.addActionListener(listenControllers);}
+
+    public void addBtnjbListAllSuppliersListener(ActionListener listenControllers) {
+        jbListAllSuppliers.addActionListener(listenControllers);}
+
+    public void addBtnjbSaveSupplierListener(ActionListener listenControllers) {
+        jbSaveSuppliers.addActionListener(listenControllers);}
+
+    public void addBtnjbSearchSupplierListener(ActionListener listenControllers) {
+        jbSearchSuppliers.addActionListener(listenControllers);}
+
+    public void addBtnjbUpdateSupplierListener(ActionListener listenControllers) {
+        jbUpdateSuppliers.addActionListener(listenControllers);}
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -65,13 +203,13 @@ public class MainView extends javax.swing.JFrame {
         jtfProductNameProduct = new javax.swing.JTextField();
         jLabel20 = new javax.swing.JLabel();
         jLabel21 = new javax.swing.JLabel();
-        jtfDeleteProduct = new javax.swing.JTextField();
-        jbDeleteProduct = new javax.swing.JButton();
-        jtfSearchProduct = new javax.swing.JTextField();
-        jbSearchProduct = new javax.swing.JButton();
-        jbListAllProduct = new javax.swing.JButton();
-        jbUpdateProduct = new javax.swing.JButton();
-        jbSaveProduct = new javax.swing.JButton();
+        jtfDeleteProducts = new javax.swing.JTextField();
+        jbDeleteProducts = new javax.swing.JButton();
+        jtfSearchProducts = new javax.swing.JTextField();
+        jbSearchProducts = new javax.swing.JButton();
+        jbListAllProducts = new javax.swing.JButton();
+        jbUpdateProducts = new javax.swing.JButton();
+        jbSaveProducts = new javax.swing.JButton();
         jcbSupplierProduct = new javax.swing.JComboBox<>();
         jLabel13 = new javax.swing.JLabel();
         jtfProductDescriptionProduct = new javax.swing.JTextField();
@@ -89,11 +227,11 @@ public class MainView extends javax.swing.JFrame {
         jTextField2 = new javax.swing.JTextField();
         jTextField3 = new javax.swing.JTextField();
         jTextField4 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
+        jbSaveCustomers = new javax.swing.JButton();
+        jbUpdateCustomers = new javax.swing.JButton();
+        jbListAllCustomers = new javax.swing.JButton();
+        jbSearchCustomers = new javax.swing.JButton();
+        jbDeleteCustomers = new javax.swing.JButton();
         jTextField5 = new javax.swing.JTextField();
         jTextField6 = new javax.swing.JTextField();
         jScrollPane9 = new javax.swing.JScrollPane();
@@ -109,12 +247,12 @@ public class MainView extends javax.swing.JFrame {
         jLabel16 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
         jTextField15 = new javax.swing.JTextField();
-        jButton6 = new javax.swing.JButton();
         jTextField16 = new javax.swing.JTextField();
-        jButton7 = new javax.swing.JButton();
-        jButton8 = new javax.swing.JButton();
-        jButton9 = new javax.swing.JButton();
-        jButton10 = new javax.swing.JButton();
+        jbDeleteSuppliers = new javax.swing.JButton();
+        jbSearchSuppliers = new javax.swing.JButton();
+        jbListAllSuppliers = new javax.swing.JButton();
+        jbUpdateSuppliers = new javax.swing.JButton();
+        jbSaveSuppliers = new javax.swing.JButton();
         jScrollPane10 = new javax.swing.JScrollPane();
         jTable5 = new javax.swing.JTable();
         jPanelSalesRecord = new javax.swing.JPanel();
@@ -317,30 +455,46 @@ public class MainView extends javax.swing.JFrame {
         jLabel21.setText("PRODUCT NAME:");
         jPanelProduts.add(jLabel21);
         jLabel21.setBounds(170, 140, 120, 16);
-        jPanelProduts.add(jtfDeleteProduct);
-        jtfDeleteProduct.setBounds(700, 560, 120, 22);
 
-        jbDeleteProduct.setText("DELETE");
-        jPanelProduts.add(jbDeleteProduct);
-        jbDeleteProduct.setBounds(700, 600, 120, 23);
-        jPanelProduts.add(jtfSearchProduct);
-        jtfSearchProduct.setBounds(540, 560, 120, 22);
+        jtfDeleteProducts.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jtfDeleteProductsActionPerformed(evt);
+            }
+        });
+        jPanelProduts.add(jtfDeleteProducts);
+        jtfDeleteProducts.setBounds(700, 560, 120, 22);
 
-        jbSearchProduct.setText("SEARCH");
-        jPanelProduts.add(jbSearchProduct);
-        jbSearchProduct.setBounds(540, 600, 120, 23);
+        jbDeleteProducts.setText("DELETE");
+        jPanelProduts.add(jbDeleteProducts);
+        jbDeleteProducts.setBounds(700, 600, 120, 23);
+        jPanelProduts.add(jtfSearchProducts);
+        jtfSearchProducts.setBounds(540, 560, 120, 22);
 
-        jbListAllProduct.setText("LIST ALL");
-        jPanelProduts.add(jbListAllProduct);
-        jbListAllProduct.setBounds(380, 600, 120, 23);
+        jbSearchProducts.setText("SEARCH");
+        jbSearchProducts.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbSearchProductsActionPerformed(evt);
+            }
+        });
+        jPanelProduts.add(jbSearchProducts);
+        jbSearchProducts.setBounds(540, 600, 120, 23);
 
-        jbUpdateProduct.setText("UPDATE");
-        jPanelProduts.add(jbUpdateProduct);
-        jbUpdateProduct.setBounds(220, 600, 120, 23);
+        jbListAllProducts.setText("LIST ALL");
+        jPanelProduts.add(jbListAllProducts);
+        jbListAllProducts.setBounds(380, 600, 120, 23);
 
-        jbSaveProduct.setText("SAVE");
-        jPanelProduts.add(jbSaveProduct);
-        jbSaveProduct.setBounds(50, 600, 120, 23);
+        jbUpdateProducts.setText("UPDATE");
+        jPanelProduts.add(jbUpdateProducts);
+        jbUpdateProducts.setBounds(220, 600, 120, 23);
+
+        jbSaveProducts.setText("SAVE");
+        jbSaveProducts.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbSaveProductsActionPerformed(evt);
+            }
+        });
+        jPanelProduts.add(jbSaveProducts);
+        jbSaveProducts.setBounds(50, 600, 120, 23);
 
         jPanelProduts.add(jcbSupplierProduct);
         jcbSupplierProduct.setBounds(360, 180, 320, 22);
@@ -420,25 +574,30 @@ public class MainView extends javax.swing.JFrame {
         jPanelCustomers.add(jTextField4);
         jTextField4.setBounds(360, 230, 320, 22);
 
-        jButton1.setText("SAVE");
-        jPanelCustomers.add(jButton1);
-        jButton1.setBounds(50, 600, 120, 23);
+        jbSaveCustomers.setText("SAVE");
+        jbSaveCustomers.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbSaveCustomersActionPerformed(evt);
+            }
+        });
+        jPanelCustomers.add(jbSaveCustomers);
+        jbSaveCustomers.setBounds(50, 600, 120, 23);
 
-        jButton2.setText("UPDATE");
-        jPanelCustomers.add(jButton2);
-        jButton2.setBounds(220, 600, 120, 23);
+        jbUpdateCustomers.setText("UPDATE");
+        jPanelCustomers.add(jbUpdateCustomers);
+        jbUpdateCustomers.setBounds(220, 600, 120, 23);
 
-        jButton3.setText("LIST ALL");
-        jPanelCustomers.add(jButton3);
-        jButton3.setBounds(380, 600, 120, 23);
+        jbListAllCustomers.setText("LIST ALL");
+        jPanelCustomers.add(jbListAllCustomers);
+        jbListAllCustomers.setBounds(380, 600, 120, 23);
 
-        jButton4.setText("SEARCH");
-        jPanelCustomers.add(jButton4);
-        jButton4.setBounds(540, 600, 120, 23);
+        jbSearchCustomers.setText("SEARCH");
+        jPanelCustomers.add(jbSearchCustomers);
+        jbSearchCustomers.setBounds(540, 600, 120, 23);
 
-        jButton5.setText("DELETE");
-        jPanelCustomers.add(jButton5);
-        jButton5.setBounds(700, 600, 120, 23);
+        jbDeleteCustomers.setText("DELETE");
+        jPanelCustomers.add(jbDeleteCustomers);
+        jbDeleteCustomers.setBounds(700, 600, 120, 23);
         jPanelCustomers.add(jTextField5);
         jTextField5.setBounds(540, 560, 120, 22);
         jPanelCustomers.add(jTextField6);
@@ -500,28 +659,33 @@ public class MainView extends javax.swing.JFrame {
         jLabel17.setBounds(170, 140, 120, 16);
         jPanelSuppliers.add(jTextField15);
         jTextField15.setBounds(700, 560, 120, 22);
-
-        jButton6.setText("DELETE");
-        jPanelSuppliers.add(jButton6);
-        jButton6.setBounds(700, 600, 120, 23);
         jPanelSuppliers.add(jTextField16);
         jTextField16.setBounds(540, 560, 120, 22);
 
-        jButton7.setText("SEARCH");
-        jPanelSuppliers.add(jButton7);
-        jButton7.setBounds(540, 600, 120, 23);
+        jbDeleteSuppliers.setText("DELETE");
+        jPanelSuppliers.add(jbDeleteSuppliers);
+        jbDeleteSuppliers.setBounds(700, 600, 120, 23);
 
-        jButton8.setText("LIST ALL");
-        jPanelSuppliers.add(jButton8);
-        jButton8.setBounds(380, 600, 120, 23);
+        jbSearchSuppliers.setText("SEARCH");
+        jPanelSuppliers.add(jbSearchSuppliers);
+        jbSearchSuppliers.setBounds(540, 600, 120, 23);
 
-        jButton9.setText("UPDATE");
-        jPanelSuppliers.add(jButton9);
-        jButton9.setBounds(220, 600, 120, 23);
+        jbListAllSuppliers.setText("LIST ALL");
+        jPanelSuppliers.add(jbListAllSuppliers);
+        jbListAllSuppliers.setBounds(380, 600, 120, 23);
 
-        jButton10.setText("SAVE");
-        jPanelSuppliers.add(jButton10);
-        jButton10.setBounds(50, 600, 120, 23);
+        jbUpdateSuppliers.setText("UPDATE");
+        jPanelSuppliers.add(jbUpdateSuppliers);
+        jbUpdateSuppliers.setBounds(220, 600, 120, 23);
+
+        jbSaveSuppliers.setText("SAVE");
+        jbSaveSuppliers.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbSaveSuppliersActionPerformed(evt);
+            }
+        });
+        jPanelSuppliers.add(jbSaveSuppliers);
+        jbSaveSuppliers.setBounds(50, 600, 120, 23);
 
         jTable5.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -579,6 +743,26 @@ public class MainView extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jftIdProductActionPerformed
 
+    private void jbSearchProductsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbSearchProductsActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jbSearchProductsActionPerformed
+
+    private void jbSaveProductsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbSaveProductsActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jbSaveProductsActionPerformed
+
+    private void jbSaveCustomersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbSaveCustomersActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jbSaveCustomersActionPerformed
+
+    private void jbSaveSuppliersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbSaveSuppliersActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jbSaveSuppliersActionPerformed
+
+    private void jtfDeleteProductsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtfDeleteProductsActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jtfDeleteProductsActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -615,24 +799,14 @@ public class MainView extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton16;
     private javax.swing.JButton jButton17;
     private javax.swing.JButton jButton18;
     private javax.swing.JButton jButton19;
-    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton20;
     private javax.swing.JButton jButton21;
     private javax.swing.JButton jButton22;
     private javax.swing.JButton jButton23;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
-    private javax.swing.JButton jButton8;
-    private javax.swing.JButton jButton9;
     private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JComboBox<String> jComboBox3;
     private javax.swing.JComboBox<String> jComboBox4;
@@ -697,20 +871,30 @@ public class MainView extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
     private javax.swing.JTextField jTextField6;
-    private javax.swing.JButton jbDeleteProduct;
-    private javax.swing.JButton jbListAllProduct;
-    private javax.swing.JButton jbSaveProduct;
-    private javax.swing.JButton jbSearchProduct;
-    private javax.swing.JButton jbUpdateProduct;
+    private javax.swing.JButton jbDeleteCustomers;
+    private javax.swing.JButton jbDeleteProducts;
+    private javax.swing.JButton jbDeleteSuppliers;
+    private javax.swing.JButton jbListAllCustomers;
+    private javax.swing.JButton jbListAllProducts;
+    private javax.swing.JButton jbListAllSuppliers;
+    private javax.swing.JButton jbSaveCustomers;
+    private javax.swing.JButton jbSaveProducts;
+    private javax.swing.JButton jbSaveSuppliers;
+    private javax.swing.JButton jbSearchCustomers;
+    private javax.swing.JButton jbSearchProducts;
+    private javax.swing.JButton jbSearchSuppliers;
+    private javax.swing.JButton jbUpdateCustomers;
+    private javax.swing.JButton jbUpdateProducts;
+    private javax.swing.JButton jbUpdateSuppliers;
     private javax.swing.JComboBox<String> jcbSupplierProduct;
     private javax.swing.JTextField jftIdProduct;
     private javax.swing.JPanel jpBuy;
     private javax.swing.JPanel jpSell;
     private javax.swing.JSpinner jsQuantityProduct;
     private javax.swing.JTable jtProduct;
-    private javax.swing.JTextField jtfDeleteProduct;
+    private javax.swing.JTextField jtfDeleteProducts;
     private javax.swing.JTextField jtfProductDescriptionProduct;
     private javax.swing.JTextField jtfProductNameProduct;
-    private javax.swing.JTextField jtfSearchProduct;
+    private javax.swing.JTextField jtfSearchProducts;
     // End of variables declaration//GEN-END:variables
 }

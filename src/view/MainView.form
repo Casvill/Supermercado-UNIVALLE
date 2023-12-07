@@ -505,14 +505,17 @@
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="javax.swing.JTextField" name="jtfDeleteProduct">
+            <Component class="javax.swing.JTextField" name="jtfDeleteProducts">
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jtfDeleteProductsActionPerformed"/>
+              </Events>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                   <AbsoluteConstraints x="700" y="560" width="120" height="-1"/>
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="javax.swing.JButton" name="jbDeleteProduct">
+            <Component class="javax.swing.JButton" name="jbDeleteProducts">
               <Properties>
                 <Property name="text" type="java.lang.String" value="DELETE"/>
               </Properties>
@@ -522,24 +525,27 @@
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="javax.swing.JTextField" name="jtfSearchProduct">
+            <Component class="javax.swing.JTextField" name="jtfSearchProducts">
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                   <AbsoluteConstraints x="540" y="560" width="120" height="-1"/>
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="javax.swing.JButton" name="jbSearchProduct">
+            <Component class="javax.swing.JButton" name="jbSearchProducts">
               <Properties>
                 <Property name="text" type="java.lang.String" value="SEARCH"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jbSearchProductsActionPerformed"/>
+              </Events>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                   <AbsoluteConstraints x="540" y="600" width="120" height="-1"/>
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="javax.swing.JButton" name="jbListAllProduct">
+            <Component class="javax.swing.JButton" name="jbListAllProducts">
               <Properties>
                 <Property name="text" type="java.lang.String" value="LIST ALL"/>
               </Properties>
@@ -549,7 +555,7 @@
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="javax.swing.JButton" name="jbUpdateProduct">
+            <Component class="javax.swing.JButton" name="jbUpdateProducts">
               <Properties>
                 <Property name="text" type="java.lang.String" value="UPDATE"/>
               </Properties>
@@ -559,10 +565,13 @@
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="javax.swing.JButton" name="jbSaveProduct">
+            <Component class="javax.swing.JButton" name="jbSaveProducts">
               <Properties>
                 <Property name="text" type="java.lang.String" value="SAVE"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jbSaveProductsActionPerformed"/>
+              </Events>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                   <AbsoluteConstraints x="50" y="600" width="120" height="-1"/>
@@ -776,17 +785,20 @@
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="javax.swing.JButton" name="jButton1">
+            <Component class="javax.swing.JButton" name="jbSaveCustomers">
               <Properties>
                 <Property name="text" type="java.lang.String" value="SAVE"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jbSaveCustomersActionPerformed"/>
+              </Events>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                   <AbsoluteConstraints x="50" y="600" width="120" height="-1"/>
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="javax.swing.JButton" name="jButton2">
+            <Component class="javax.swing.JButton" name="jbUpdateCustomers">
               <Properties>
                 <Property name="text" type="java.lang.String" value="UPDATE"/>
               </Properties>
@@ -796,7 +808,7 @@
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="javax.swing.JButton" name="jButton3">
+            <Component class="javax.swing.JButton" name="jbListAllCustomers">
               <Properties>
                 <Property name="text" type="java.lang.String" value="LIST ALL"/>
               </Properties>
@@ -806,7 +818,7 @@
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="javax.swing.JButton" name="jButton4">
+            <Component class="javax.swing.JButton" name="jbSearchCustomers">
               <Properties>
                 <Property name="text" type="java.lang.String" value="SEARCH"/>
               </Properties>
@@ -816,7 +828,7 @@
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="javax.swing.JButton" name="jButton5">
+            <Component class="javax.swing.JButton" name="jbDeleteCustomers">
               <Properties>
                 <Property name="text" type="java.lang.String" value="DELETE"/>
               </Properties>
@@ -972,7 +984,14 @@
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="javax.swing.JButton" name="jButton6">
+            <Component class="javax.swing.JTextField" name="jTextField16">
+              <Constraints>
+                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                  <AbsoluteConstraints x="540" y="560" width="120" height="-1"/>
+                </Constraint>
+              </Constraints>
+            </Component>
+            <Component class="javax.swing.JButton" name="jbDeleteSuppliers">
               <Properties>
                 <Property name="text" type="java.lang.String" value="DELETE"/>
               </Properties>
@@ -982,14 +1001,7 @@
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="javax.swing.JTextField" name="jTextField16">
-              <Constraints>
-                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="540" y="560" width="120" height="-1"/>
-                </Constraint>
-              </Constraints>
-            </Component>
-            <Component class="javax.swing.JButton" name="jButton7">
+            <Component class="javax.swing.JButton" name="jbSearchSuppliers">
               <Properties>
                 <Property name="text" type="java.lang.String" value="SEARCH"/>
               </Properties>
@@ -999,7 +1011,7 @@
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="javax.swing.JButton" name="jButton8">
+            <Component class="javax.swing.JButton" name="jbListAllSuppliers">
               <Properties>
                 <Property name="text" type="java.lang.String" value="LIST ALL"/>
               </Properties>
@@ -1009,7 +1021,7 @@
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="javax.swing.JButton" name="jButton9">
+            <Component class="javax.swing.JButton" name="jbUpdateSuppliers">
               <Properties>
                 <Property name="text" type="java.lang.String" value="UPDATE"/>
               </Properties>
@@ -1019,10 +1031,13 @@
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="javax.swing.JButton" name="jButton10">
+            <Component class="javax.swing.JButton" name="jbSaveSuppliers">
               <Properties>
                 <Property name="text" type="java.lang.String" value="SAVE"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jbSaveSuppliersActionPerformed"/>
+              </Events>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                   <AbsoluteConstraints x="50" y="600" width="120" height="-1"/>
