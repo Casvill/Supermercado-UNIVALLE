@@ -58,7 +58,7 @@ public class MainView extends javax.swing.JFrame {
         jTable2 = new javax.swing.JTable();
         jButton21 = new javax.swing.JButton();
         jButton23 = new javax.swing.JButton();
-        jPanel3 = new javax.swing.JPanel();
+        jPanelProduts = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
         jftIdProduct = new javax.swing.JTextField();
@@ -79,7 +79,7 @@ public class MainView extends javax.swing.JFrame {
         jtProduct = new javax.swing.JTable();
         jsQuantityProduct = new javax.swing.JSpinner();
         jLabel26 = new javax.swing.JLabel();
-        jPanel4 = new javax.swing.JPanel();
+        jPanelCustomers = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
@@ -98,7 +98,7 @@ public class MainView extends javax.swing.JFrame {
         jTextField6 = new javax.swing.JTextField();
         jScrollPane9 = new javax.swing.JScrollPane();
         jTable4 = new javax.swing.JTable();
-        jPanel5 = new javax.swing.JPanel();
+        jPanelSuppliers = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
         jTextField11 = new javax.swing.JTextField();
@@ -117,7 +117,7 @@ public class MainView extends javax.swing.JFrame {
         jButton10 = new javax.swing.JButton();
         jScrollPane10 = new javax.swing.JScrollPane();
         jTable5 = new javax.swing.JTable();
-        jPanel1 = new javax.swing.JPanel();
+        jPanelSalesRecord = new javax.swing.JPanel();
         jScrollPane11 = new javax.swing.JScrollPane();
         jTable6 = new javax.swing.JTable();
 
@@ -137,10 +137,10 @@ public class MainView extends javax.swing.JFrame {
         jLabel1.setBounds(350, 20, 110, 60);
 
         jpSell.add(jComboBox4);
-        jComboBox4.setBounds(400, 80, 250, 26);
+        jComboBox4.setBounds(400, 80, 250, 22);
 
         jpSell.add(jComboBox5);
-        jComboBox5.setBounds(400, 130, 250, 26);
+        jComboBox5.setBounds(400, 130, 250, 22);
 
         jTextArea5.setColumns(20);
         jTextArea5.setRows(5);
@@ -149,15 +149,15 @@ public class MainView extends javax.swing.JFrame {
         jpSell.add(jScrollPane5);
         jScrollPane5.setBounds(400, 170, 250, 70);
         jpSell.add(jSpinner2);
-        jSpinner2.setBounds(400, 260, 80, 26);
+        jSpinner2.setBounds(400, 260, 80, 22);
 
         jButton18.setText("SELL");
         jpSell.add(jButton18);
-        jButton18.setBounds(450, 580, 140, 27);
+        jButton18.setBounds(450, 580, 140, 23);
 
         jButton19.setText("CLEAN FORM");
         jpSell.add(jButton19);
-        jButton19.setBounds(230, 580, 130, 27);
+        jButton19.setBounds(230, 580, 130, 23);
 
         jLabel22.setText("QUANTITY:");
         jpSell.add(jLabel22);
@@ -201,11 +201,11 @@ public class MainView extends javax.swing.JFrame {
 
         jButton20.setText("ADD PRODUCT");
         jpSell.add(jButton20);
-        jButton20.setBounds(400, 310, 190, 27);
+        jButton20.setBounds(400, 310, 190, 23);
 
         jButton22.setText("DELETE PRODUCT");
         jpSell.add(jButton22);
-        jButton22.setBounds(600, 310, 200, 27);
+        jButton22.setBounds(600, 310, 200, 23);
 
         jTabbedPane1.addTab("SELL", jpSell);
 
@@ -221,28 +221,28 @@ public class MainView extends javax.swing.JFrame {
         jLabel10.setBounds(220, 80, 100, 16);
 
         jpBuy.add(jComboBox2);
-        jComboBox2.setBounds(400, 70, 250, 26);
+        jComboBox2.setBounds(400, 70, 250, 22);
 
         jLabel11.setText("PRODUCT NAME:");
         jpBuy.add(jLabel11);
         jLabel11.setBounds(220, 130, 100, 16);
 
         jpBuy.add(jComboBox3);
-        jComboBox3.setBounds(400, 120, 250, 26);
+        jComboBox3.setBounds(400, 120, 250, 22);
 
         jLabel12.setText("QUANTITY:");
         jpBuy.add(jLabel12);
         jLabel12.setBounds(220, 280, 90, 16);
         jpBuy.add(jSpinner1);
-        jSpinner1.setBounds(400, 270, 80, 26);
+        jSpinner1.setBounds(400, 270, 80, 22);
 
         jButton16.setText("CLEAN FORM");
         jpBuy.add(jButton16);
-        jButton16.setBounds(200, 590, 150, 27);
+        jButton16.setBounds(200, 590, 150, 23);
 
         jButton17.setText("BUY");
         jpBuy.add(jButton17);
-        jButton17.setBounds(450, 590, 160, 27);
+        jButton17.setBounds(450, 590, 160, 23);
 
         jLabel19.setText("PRODUCT DESCRIPTION:");
         jpBuy.add(jLabel19);
@@ -281,23 +281,23 @@ public class MainView extends javax.swing.JFrame {
 
         jButton21.setText("ADD PRODUCT");
         jpBuy.add(jButton21);
-        jButton21.setBounds(400, 310, 190, 27);
+        jButton21.setBounds(400, 310, 190, 23);
 
         jButton23.setText("DELETE PRODUCT");
         jpBuy.add(jButton23);
-        jButton23.setBounds(600, 310, 200, 27);
+        jButton23.setBounds(600, 310, 200, 23);
 
         jTabbedPane1.addTab("BUY", jpBuy);
 
-        jPanel3.setLayout(null);
+        jPanelProduts.setLayout(null);
 
         jLabel4.setFont(new java.awt.Font("Yu Gothic Light", 1, 28)); // NOI18N
         jLabel4.setText("PRODUCTS");
-        jPanel3.add(jLabel4);
+        jPanelProduts.add(jLabel4);
         jLabel4.setBounds(300, 10, 260, 80);
 
         jLabel18.setText("ID:");
-        jPanel3.add(jLabel18);
+        jPanelProduts.add(jLabel18);
         jLabel18.setBounds(170, 90, 120, 16);
 
         jftIdProduct.addActionListener(new java.awt.event.ActionListener() {
@@ -305,50 +305,50 @@ public class MainView extends javax.swing.JFrame {
                 jftIdProductActionPerformed(evt);
             }
         });
-        jPanel3.add(jftIdProduct);
-        jftIdProduct.setBounds(360, 80, 320, 26);
-        jPanel3.add(jtfProductNameProduct);
-        jtfProductNameProduct.setBounds(360, 130, 320, 26);
+        jPanelProduts.add(jftIdProduct);
+        jftIdProduct.setBounds(360, 80, 320, 22);
+        jPanelProduts.add(jtfProductNameProduct);
+        jtfProductNameProduct.setBounds(360, 130, 320, 22);
 
         jLabel20.setText("SUPPLIER:");
-        jPanel3.add(jLabel20);
+        jPanelProduts.add(jLabel20);
         jLabel20.setBounds(170, 190, 120, 16);
 
         jLabel21.setText("PRODUCT NAME:");
-        jPanel3.add(jLabel21);
+        jPanelProduts.add(jLabel21);
         jLabel21.setBounds(170, 140, 120, 16);
-        jPanel3.add(jtfDeleteProduct);
-        jtfDeleteProduct.setBounds(700, 560, 120, 26);
+        jPanelProduts.add(jtfDeleteProduct);
+        jtfDeleteProduct.setBounds(700, 560, 120, 22);
 
         jbDeleteProduct.setText("DELETE");
-        jPanel3.add(jbDeleteProduct);
-        jbDeleteProduct.setBounds(700, 600, 120, 27);
-        jPanel3.add(jtfSearchProduct);
-        jtfSearchProduct.setBounds(540, 560, 120, 26);
+        jPanelProduts.add(jbDeleteProduct);
+        jbDeleteProduct.setBounds(700, 600, 120, 23);
+        jPanelProduts.add(jtfSearchProduct);
+        jtfSearchProduct.setBounds(540, 560, 120, 22);
 
         jbSearchProduct.setText("SEARCH");
-        jPanel3.add(jbSearchProduct);
-        jbSearchProduct.setBounds(540, 600, 120, 27);
+        jPanelProduts.add(jbSearchProduct);
+        jbSearchProduct.setBounds(540, 600, 120, 23);
 
         jbListAllProduct.setText("LIST ALL");
-        jPanel3.add(jbListAllProduct);
-        jbListAllProduct.setBounds(380, 600, 120, 27);
+        jPanelProduts.add(jbListAllProduct);
+        jbListAllProduct.setBounds(380, 600, 120, 23);
 
         jbUpdateProduct.setText("UPDATE");
-        jPanel3.add(jbUpdateProduct);
-        jbUpdateProduct.setBounds(220, 600, 120, 27);
+        jPanelProduts.add(jbUpdateProduct);
+        jbUpdateProduct.setBounds(220, 600, 120, 23);
 
         jbSaveProduct.setText("SAVE");
-        jPanel3.add(jbSaveProduct);
-        jbSaveProduct.setBounds(50, 600, 120, 27);
+        jPanelProduts.add(jbSaveProduct);
+        jbSaveProduct.setBounds(50, 600, 120, 23);
 
-        jPanel3.add(jcbSupplierProduct);
-        jcbSupplierProduct.setBounds(360, 180, 320, 26);
+        jPanelProduts.add(jcbSupplierProduct);
+        jcbSupplierProduct.setBounds(360, 180, 320, 22);
 
         jLabel13.setText("PRODUCT DESCRIPTION:");
-        jPanel3.add(jLabel13);
+        jPanelProduts.add(jLabel13);
         jLabel13.setBounds(170, 240, 160, 16);
-        jPanel3.add(jtfProductDescriptionProduct);
+        jPanelProduts.add(jtfProductDescriptionProduct);
         jtfProductDescriptionProduct.setBounds(360, 230, 320, 30);
 
         jtProduct.setModel(new javax.swing.table.DefaultTableModel(
@@ -372,38 +372,38 @@ public class MainView extends javax.swing.JFrame {
         });
         jScrollPane8.setViewportView(jtProduct);
 
-        jPanel3.add(jScrollPane8);
+        jPanelProduts.add(jScrollPane8);
         jScrollPane8.setBounds(50, 316, 770, 230);
-        jPanel3.add(jsQuantityProduct);
-        jsQuantityProduct.setBounds(360, 280, 80, 26);
+        jPanelProduts.add(jsQuantityProduct);
+        jsQuantityProduct.setBounds(360, 280, 80, 22);
 
         jLabel26.setText("QUANTITY:");
-        jPanel3.add(jLabel26);
+        jPanelProduts.add(jLabel26);
         jLabel26.setBounds(170, 285, 90, 16);
 
-        jTabbedPane1.addTab("PRODUCTS", jPanel3);
+        jTabbedPane1.addTab("PRODUCTS", jPanelProduts);
 
-        jPanel4.setLayout(null);
+        jPanelCustomers.setLayout(null);
 
         jLabel5.setFont(new java.awt.Font("Yu Gothic Light", 1, 28)); // NOI18N
         jLabel5.setText("CUSTOMERS");
-        jPanel4.add(jLabel5);
+        jPanelCustomers.add(jLabel5);
         jLabel5.setBounds(290, 10, 200, 80);
 
         jLabel6.setText("ID:");
-        jPanel4.add(jLabel6);
+        jPanelCustomers.add(jLabel6);
         jLabel6.setBounds(170, 90, 120, 16);
 
         jLabel7.setText("NAME:");
-        jPanel4.add(jLabel7);
+        jPanelCustomers.add(jLabel7);
         jLabel7.setBounds(170, 140, 120, 16);
 
         jLabel8.setText("SURNAMES:");
-        jPanel4.add(jLabel8);
+        jPanelCustomers.add(jLabel8);
         jLabel8.setBounds(170, 190, 120, 16);
 
         jLabel9.setText("PHONE NUMBER:");
-        jPanel4.add(jLabel9);
+        jPanelCustomers.add(jLabel9);
         jLabel9.setBounds(170, 240, 120, 16);
 
         jTextField1.addActionListener(new java.awt.event.ActionListener() {
@@ -411,38 +411,38 @@ public class MainView extends javax.swing.JFrame {
                 jTextField1ActionPerformed(evt);
             }
         });
-        jPanel4.add(jTextField1);
-        jTextField1.setBounds(360, 80, 320, 26);
-        jPanel4.add(jTextField2);
-        jTextField2.setBounds(360, 130, 320, 26);
-        jPanel4.add(jTextField3);
-        jTextField3.setBounds(360, 180, 320, 26);
-        jPanel4.add(jTextField4);
-        jTextField4.setBounds(360, 230, 320, 26);
+        jPanelCustomers.add(jTextField1);
+        jTextField1.setBounds(360, 80, 320, 22);
+        jPanelCustomers.add(jTextField2);
+        jTextField2.setBounds(360, 130, 320, 22);
+        jPanelCustomers.add(jTextField3);
+        jTextField3.setBounds(360, 180, 320, 22);
+        jPanelCustomers.add(jTextField4);
+        jTextField4.setBounds(360, 230, 320, 22);
 
         jButton1.setText("SAVE");
-        jPanel4.add(jButton1);
-        jButton1.setBounds(50, 600, 120, 27);
+        jPanelCustomers.add(jButton1);
+        jButton1.setBounds(50, 600, 120, 23);
 
         jButton2.setText("UPDATE");
-        jPanel4.add(jButton2);
-        jButton2.setBounds(220, 600, 120, 27);
+        jPanelCustomers.add(jButton2);
+        jButton2.setBounds(220, 600, 120, 23);
 
         jButton3.setText("LIST ALL");
-        jPanel4.add(jButton3);
-        jButton3.setBounds(380, 600, 120, 27);
+        jPanelCustomers.add(jButton3);
+        jButton3.setBounds(380, 600, 120, 23);
 
         jButton4.setText("SEARCH");
-        jPanel4.add(jButton4);
-        jButton4.setBounds(540, 600, 120, 27);
+        jPanelCustomers.add(jButton4);
+        jButton4.setBounds(540, 600, 120, 23);
 
         jButton5.setText("DELETE");
-        jPanel4.add(jButton5);
-        jButton5.setBounds(700, 600, 120, 27);
-        jPanel4.add(jTextField5);
-        jTextField5.setBounds(540, 560, 120, 26);
-        jPanel4.add(jTextField6);
-        jTextField6.setBounds(700, 560, 120, 26);
+        jPanelCustomers.add(jButton5);
+        jButton5.setBounds(700, 600, 120, 23);
+        jPanelCustomers.add(jTextField5);
+        jTextField5.setBounds(540, 560, 120, 22);
+        jPanelCustomers.add(jTextField6);
+        jTextField6.setBounds(700, 560, 120, 22);
 
         jTable4.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -457,20 +457,20 @@ public class MainView extends javax.swing.JFrame {
         ));
         jScrollPane9.setViewportView(jTable4);
 
-        jPanel4.add(jScrollPane9);
+        jPanelCustomers.add(jScrollPane9);
         jScrollPane9.setBounds(50, 286, 770, 250);
 
-        jTabbedPane1.addTab("CUSTOMERS", jPanel4);
+        jTabbedPane1.addTab("CUSTOMERS", jPanelCustomers);
 
-        jPanel5.setLayout(null);
+        jPanelSuppliers.setLayout(null);
 
         jLabel3.setFont(new java.awt.Font("Yu Gothic Light", 1, 28)); // NOI18N
         jLabel3.setText("SUPPLIERS");
-        jPanel5.add(jLabel3);
+        jPanelSuppliers.add(jLabel3);
         jLabel3.setBounds(290, 10, 260, 80);
 
         jLabel14.setText("ID:");
-        jPanel5.add(jLabel14);
+        jPanelSuppliers.add(jLabel14);
         jLabel14.setBounds(170, 90, 120, 16);
 
         jTextField11.addActionListener(new java.awt.event.ActionListener() {
@@ -478,50 +478,50 @@ public class MainView extends javax.swing.JFrame {
                 jTextField11ActionPerformed(evt);
             }
         });
-        jPanel5.add(jTextField11);
-        jTextField11.setBounds(360, 80, 320, 26);
-        jPanel5.add(jTextField12);
-        jTextField12.setBounds(360, 130, 320, 26);
-        jPanel5.add(jTextField13);
-        jTextField13.setBounds(360, 180, 320, 26);
-        jPanel5.add(jTextField14);
-        jTextField14.setBounds(360, 230, 320, 26);
+        jPanelSuppliers.add(jTextField11);
+        jTextField11.setBounds(360, 80, 320, 22);
+        jPanelSuppliers.add(jTextField12);
+        jTextField12.setBounds(360, 130, 320, 22);
+        jPanelSuppliers.add(jTextField13);
+        jTextField13.setBounds(360, 180, 320, 22);
+        jPanelSuppliers.add(jTextField14);
+        jTextField14.setBounds(360, 230, 320, 22);
 
         jLabel15.setText("PHONE NUMBER:");
-        jPanel5.add(jLabel15);
+        jPanelSuppliers.add(jLabel15);
         jLabel15.setBounds(170, 240, 120, 16);
 
         jLabel16.setText("SURNAMES:");
-        jPanel5.add(jLabel16);
+        jPanelSuppliers.add(jLabel16);
         jLabel16.setBounds(170, 190, 120, 16);
 
         jLabel17.setText("NAME:");
-        jPanel5.add(jLabel17);
+        jPanelSuppliers.add(jLabel17);
         jLabel17.setBounds(170, 140, 120, 16);
-        jPanel5.add(jTextField15);
-        jTextField15.setBounds(700, 560, 120, 26);
+        jPanelSuppliers.add(jTextField15);
+        jTextField15.setBounds(700, 560, 120, 22);
 
         jButton6.setText("DELETE");
-        jPanel5.add(jButton6);
-        jButton6.setBounds(700, 600, 120, 27);
-        jPanel5.add(jTextField16);
-        jTextField16.setBounds(540, 560, 120, 26);
+        jPanelSuppliers.add(jButton6);
+        jButton6.setBounds(700, 600, 120, 23);
+        jPanelSuppliers.add(jTextField16);
+        jTextField16.setBounds(540, 560, 120, 22);
 
         jButton7.setText("SEARCH");
-        jPanel5.add(jButton7);
-        jButton7.setBounds(540, 600, 120, 27);
+        jPanelSuppliers.add(jButton7);
+        jButton7.setBounds(540, 600, 120, 23);
 
         jButton8.setText("LIST ALL");
-        jPanel5.add(jButton8);
-        jButton8.setBounds(380, 600, 120, 27);
+        jPanelSuppliers.add(jButton8);
+        jButton8.setBounds(380, 600, 120, 23);
 
         jButton9.setText("UPDATE");
-        jPanel5.add(jButton9);
-        jButton9.setBounds(220, 600, 120, 27);
+        jPanelSuppliers.add(jButton9);
+        jButton9.setBounds(220, 600, 120, 23);
 
         jButton10.setText("SAVE");
-        jPanel5.add(jButton10);
-        jButton10.setBounds(50, 600, 120, 27);
+        jPanelSuppliers.add(jButton10);
+        jButton10.setBounds(50, 600, 120, 23);
 
         jTable5.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -536,12 +536,12 @@ public class MainView extends javax.swing.JFrame {
         ));
         jScrollPane10.setViewportView(jTable5);
 
-        jPanel5.add(jScrollPane10);
+        jPanelSuppliers.add(jScrollPane10);
         jScrollPane10.setBounds(50, 286, 770, 250);
 
-        jTabbedPane1.addTab("SUPPLIERS", jPanel5);
+        jTabbedPane1.addTab("SUPPLIERS", jPanelSuppliers);
 
-        jPanel1.setLayout(null);
+        jPanelSalesRecord.setLayout(null);
 
         jTable6.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -556,10 +556,10 @@ public class MainView extends javax.swing.JFrame {
         ));
         jScrollPane11.setViewportView(jTable6);
 
-        jPanel1.add(jScrollPane11);
+        jPanelSalesRecord.add(jScrollPane11);
         jScrollPane11.setBounds(50, 30, 750, 580);
 
-        jTabbedPane1.addTab("SALES RECORD", jPanel1);
+        jTabbedPane1.addTab("SALES RECORD", jPanelSalesRecord);
 
         getContentPane().add(jTabbedPane1);
         jTabbedPane1.setBounds(0, 0, 850, 850);
@@ -663,10 +663,10 @@ public class MainView extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
-    private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanelCustomers;
+    private javax.swing.JPanel jPanelProduts;
+    private javax.swing.JPanel jPanelSalesRecord;
+    private javax.swing.JPanel jPanelSuppliers;
     private javax.swing.JScrollPane jScrollPane10;
     private javax.swing.JScrollPane jScrollPane11;
     private javax.swing.JScrollPane jScrollPane4;

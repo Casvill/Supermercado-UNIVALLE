@@ -1,13 +1,17 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Interface.java to edit this template
- */
 package dao;
+
+import java.util.List;
+import model.Customer;
 
 /**
  *
- * @author Daniel Casvill
+ * @author Daniel tuhermano
  */
-public interface ICustomerDao {
-    
+public interface ICustomerDao 
+{
+    public List<Customer> getAllProducts();
+    public Customer getContact(String contactID);
+    public boolean addContact(Customer contact);
+    public boolean updateContact(Customer contact);
+    public boolean deleteContact(String contactId);    
 }
