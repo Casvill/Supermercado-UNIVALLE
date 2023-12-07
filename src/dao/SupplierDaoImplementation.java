@@ -7,7 +7,7 @@ import model.Supplier;
  *
  * @author tuhermanastro
  */
-public class SupplierDaoImplementation implements ISupplierDao
+public abstract class SupplierDaoImplementation implements ISupplierDao
 {
 
     @Override
@@ -16,25 +16,21 @@ public class SupplierDaoImplementation implements ISupplierDao
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
-    @Override
-    public Supplier getContact(String contactID) {
+    public Supplier getSupplier(String supplierID) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
-    @Override
-    public boolean addContact(Supplier contact) {
+    public boolean addSupplier(Supplier supplier) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
-    @Override
-    public boolean updateContact(Supplier contact) {
+    public boolean updateSupplier(Supplier supplier) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
-    @Override
-    public boolean deleteContact(String contactId) {
+    public boolean deleteSupplier(String supplierId) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
-    
+   
     
 }

@@ -10,8 +10,8 @@ import model.Supplier;
 public interface ISupplierDao 
 {
     public List<Supplier> getAllSuppliers();
-    public Supplier getContact(String contactID);
-    public boolean addContact(Supplier contact);
-    public boolean updateContact(Supplier contact);
-    public boolean deleteContact(String contactId);    
+    public Supplier getSupplier(String supplierID);
+    public boolean addSupplier(Supplier supplier);
+    public boolean updateSupplier(Supplier supplier);
+    public boolean deleteSupplier(String supplierId);    
 }

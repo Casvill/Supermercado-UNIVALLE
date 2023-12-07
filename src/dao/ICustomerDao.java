@@ -5,13 +5,13 @@ import model.Customer;
 
 /**
  *
- * @author Daniel tuhermano
+ * @author tuhermano
  */
 public interface ICustomerDao 
 {
-    public List<Customer> getAllProducts();
-    public Customer getContact(String contactID);
-    public boolean addContact(Customer contact);
-    public boolean updateContact(Customer contact);
-    public boolean deleteContact(String contactId);    
+    public List<Customer> getAllCustomers();
+    public Customer getcustomer(String customerID);
+    public boolean addcustomer(Customer customer);
+    public boolean updatecustomer(Customer customer);
+    public boolean deletecustomer(String customerId);    
 }
