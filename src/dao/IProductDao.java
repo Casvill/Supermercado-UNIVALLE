@@ -10,8 +10,8 @@ import model.Product;
 public interface IProductDao 
 {
     public List<Product> getAllProducts();
-    public Product getContact(String contactID);
-    public boolean addContact(Product contact);
-    public boolean updateContact(Product contact);
-    public boolean deleteContact(String contactId);    
+    public Product getProduct(String productID);
+    public boolean addProduct(Product product);
+    public boolean updateProduct(Product product);
+    public boolean deleteProduct(String productId);    
 }
