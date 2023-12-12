@@ -1,13 +1,17 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Interface.java to edit this template
- */
 package dao;
+
+import java.util.List;
+import model.Supplier;
 
 /**
  *
- * @author Daniel Casvill
+ * @author tusobrino
  */
-public interface ISupplierDao {
-    
+public interface ISupplierDao 
+{
+    public List<Supplier> getAllSuppliers();
+    public Supplier getSupplier(String supplierID);
+    public boolean addSupplier(Supplier supplier);
+    public boolean updateSupplier(Supplier supplier);
+    public boolean deleteSupplier(String supplierId);    
 }
