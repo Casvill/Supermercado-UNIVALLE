@@ -1,84 +1,82 @@
 package controller;
 
-import dao.ProductDaoImplementation;
+import dao.SupplierDaoImplementation;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.List;
-import model.Product;
+import model.Supplier;
 import view.MainView;
 
 /**
  *
  * @author Daniel Casvill
  */
-public class ProductController 
+public class SupplierController 
 {
-    private ProductDaoImplementation productDao;
+    private SupplierDaoImplementation supplierDao;
     private MainView view;
     
     
     //--------------------------------------------------------------------------------------------------
-    public ProductController(ProductDaoImplementation productDao, MainView view) 
-    {        
-        this.productDao = productDao;
+
+    public SupplierController(SupplierDaoImplementation supplierDao, MainView view) 
+    {
+        this.supplierDao = supplierDao;
         this.view = view;
-        this.view.setLocationRelativeTo(null);
         
-        
-        this.view.addBtnSaveProductListener(new ProductListener());
-        this.view.addBtnDeleteProductListener(new ProductListener());
-        this.view.addBtnListAllProductListener(new ProductListener());
-        this.view.addBtnSearchProductListener(new ProductListener());
-        this.view.addBtnUpdateProductListener(new ProductListener());
+        this.view.addBtnSaveSupplierListener(new SupplierListener());
+        this.view.addBtnDeleteSupplierListener(new SupplierListener());
+        this.view.addBtnListAllSupplierListener(new SupplierListener());
+        this.view.addBtnSearchSupplierListener(new SupplierListener());
+        this.view.addBtnUpdateSupplierListener(new SupplierListener());
     }
     //--------------------------------------------------------------------------------------------------
     
     //--------------------------------------------------------
     
-    public boolean addProduct(Product product)
+    public boolean addSupplier(Supplier supplier)
     {
-        return productDao.addProduct(product);
+        return supplierDao.addSupplier(supplier);
     }
     
     //--------------------------------------------------------
     
-    public List<Product> getProducts()
+    public List<Supplier> getSuppliers()
     {
-        return productDao.getAllProducts();
+        return supplierDao.getAllSuppliers();
     }
     
     //--------------------------------------------------------
     
-    public Product getProduct(String productId)
+    public Supplier getSupplier(String supplierId)
     {
-        return productDao.getProduct(productId);
+        return supplierDao.getSupplier(supplierId);
     }
     
     //--------------------------------------------------------
     
-    public boolean updateProduct(Product product)
+    public boolean updateSupplier(Supplier supplier)
     {
-        return productDao.updateProduct(product);
+        return supplierDao.updateSupplier(supplier);
     }
     
     //--------------------------------------------------------
     
-    public boolean deleteProduct(String productId)
+    public boolean deleteSupplier(String supplierId)
     {
-        return productDao.deleteProduct(productId);
+        return supplierDao.deleteSupplier(supplierId);
     }
     
     //--------------------------------------------------------
     
     //--------------------------------------------------------------------------------------------------
-    class ProductListener implements ActionListener
+    class SupplierListener implements ActionListener
     {
-        
         @Override
         public void actionPerformed(ActionEvent e) 
         {
             throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-        }
+        }      
         
     }
     //--------------------------------------------------------------------------------------------------

@@ -13,6 +13,5 @@ public interface ISupplierDao
     public Supplier getSupplier(String supplierID);
     public boolean addSupplier(Supplier supplier);
     public boolean updateSupplier(Supplier supplier);
-    public boolean deleteSupplier(String supplierId);
-    
+    public boolean deleteSupplier(String supplierId);   
 }
