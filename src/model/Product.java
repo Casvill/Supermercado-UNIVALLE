@@ -9,14 +9,15 @@ public class Product
     private String id;
     private String productName;
     private String supplier;
-    private String productDescription;
+    private int price;
     private int quantity;
 
-    public Product(String id, String productName, String supplier, String productDescription, int quantity) {
+    public Product(String id, String productName, String supplier, int price, int quantity) 
+    {
         this.id = id;
         this.productName = productName;
         this.supplier = supplier;
-        this.productDescription = productDescription;
+        this.price = price;
         this.quantity = quantity;
     }
 
@@ -44,12 +45,12 @@ public class Product
         this.supplier = supplier;
     }
 
-    public String getProductDescription() {
-        return productDescription;
+    public int getPrice() {
+        return price;
     }
 
-    public void setProductDescription(String productDescription) {
-        this.productDescription = productDescription;
+    public void setPrice(int price) {
+        this.price = price;
     }
 
     public int getQuantity() {
@@ -58,5 +59,7 @@ public class Product
 
     public void setQuantity(int quantity) {
         this.quantity = quantity;
-    }            
+    }
+    
+    
 }

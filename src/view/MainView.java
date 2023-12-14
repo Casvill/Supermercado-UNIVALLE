@@ -4,6 +4,7 @@ import java.awt.event.ActionListener;
 import java.util.List;
 import javax.swing.table.DefaultTableModel;
 import model.Customer;
+import model.Product;
 import model.Supplier;
 
 /**
@@ -18,12 +19,14 @@ public class MainView extends javax.swing.JFrame {
     
     DefaultTableModel modelSupplier;
     DefaultTableModel modelCustomer;
+    DefaultTableModel modelProduct;
     
     public MainView() 
     {
         initComponents();
         modelSupplier = (DefaultTableModel) jtSupplier.getModel();
-        modelCustomer = (DefaultTableModel) jtCustomers.getModel();        
+        modelCustomer = (DefaultTableModel) jtCustomers.getModel();
+        modelProduct = (DefaultTableModel) jtProduct.getModel();        
         setLocationRelativeTo(null);
     }
 
@@ -201,7 +204,8 @@ public class MainView extends javax.swing.JFrame {
         String surnames = supplier.getSurnames();
         String phoneNumber = supplier.getPhoneNumber();
         
-        modelSupplier.addRow(new Object[]{id, name, surnames, phoneNumber});        
+        modelSupplier.addRow(new Object[]{id, name, surnames, phoneNumber});     
+        addJcbSupplierProduct(name,id);
     }
     
     public void refreshSuppliersTable(List<Supplier> suppliers)
@@ -340,6 +344,143 @@ public class MainView extends javax.swing.JFrame {
         }
     }
     //--------------------------------------------------------------------------------------------------
+    
+    //PRODUCTS:----------------------------------------------------------------------------------------
+    
+    public String getTextIdProduct()
+    {
+        return jtfIdProduct.getText();
+    }
+    
+    public void setTextIdProduct(String text)
+    {
+        jtfIdProduct.setText(text);
+    }
+    
+    //----------------------------------------
+    
+    public String getTextNameProduct()
+    {
+        return jtfProductNameProduct.getText();
+    }
+    
+    public void setTextNameProduct(String text)
+    {
+        jtfProductNameProduct.setText(text);
+    }
+    
+    //----------------------------------------
+        
+    public String getTextSupplierProduct()
+    {
+        return (String) jcbSupplierProduct.getSelectedItem();
+    }
+    
+    public void setTextSupplierProduct(String text)
+    {
+        jcbSupplierProduct.setSelectedIndex(-1);
+    }
+    
+    //----------------------------------------
+    
+    public String getTexPriceProduct()
+    {
+        return jtfPriceProduct.getText();
+    }
+    
+    public void setTextPhoneNumberProduct(String text)
+    {
+        jtfPriceProduct.setText(text);
+    }
+    
+    //----------------------------------------
+    
+    public int getTexQuantityProduct()
+    {
+        return (int) jsQuantityProduct.getValue();
+    }
+    
+    public void setTexQuantityProduct(int text)
+    {
+        jsQuantityProduct.setValue(text);
+    }
+    
+    //----------------------------------------
+    
+    public String getTextSearchProduct()
+    {
+        return jtfSearchProduct.getText();
+    }
+    
+    public void setTextSearchProduct(String text)
+    {
+        jtfSearchProduct.setText(text);
+    }
+    
+    //----------------------------------------
+    
+    public String getTextDeleteProduct()
+    {
+        return jtfDeleteProduct.getText();
+    }
+    
+    public void setTextDeleteProduct(String text)
+    {
+        jtfDeleteProduct.setText(text);
+    }
+            
+    //----------------------------------------
+    
+    public boolean cleanProductForm()
+    {
+        jtfIdProduct.setText("");
+        jtfProductNameProduct.setText("");
+        jcbSupplierProduct.setSelectedIndex(-1);
+        jtfPhoneNumberCustomer.setText("");
+        jtfPriceProduct.setText("");
+        jsQuantityProduct.setValue(0);
+        jtfSearchProduct.setText("");
+        jtfDeleteProduct.setText("");
+        
+        return true;
+    }
+    
+    public void addRecordProduct(Product product)
+    {
+        String id = product.getId();
+        String name = product.getProductName();
+        String supplier = product.getSupplier();
+        int price = product.getPrice();
+        int quantity = product.getQuantity();
+        
+        modelProduct.addRow(new Object[]{id, name, supplier, price, quantity});        
+    }
+    
+    public void refreshProductsTable(List<Product> products)
+    {
+        int rowCount = modelProduct.getRowCount();
+        for (int i = rowCount - 1; i >= 0; i--) 
+        {
+            modelProduct.removeRow(i);
+        }
+        
+        for(Product product: products)
+        {
+            String id = product.getId();
+            String name = product.getProductName();
+            String supplier = product.getSupplier();
+            int price = product.getPrice();
+            int quantity = product.getQuantity();
+
+            modelProduct.addRow(new Object[]{id, name, supplier, price, quantity});        
+        }
+    }
+    
+    public void addJcbSupplierProduct(String name, String id)
+    {
+        jcbSupplierProduct.addItem(name + "-" + id);
+    }
+    //--------------------------------------------------------------------------------------------------
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -380,7 +521,7 @@ public class MainView extends javax.swing.JFrame {
         jPanel3 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
-        jftIdProduct = new javax.swing.JTextField();
+        jtfIdProduct = new javax.swing.JTextField();
         jtfProductNameProduct = new javax.swing.JTextField();
         jLabel20 = new javax.swing.JLabel();
         jLabel21 = new javax.swing.JLabel();
@@ -393,7 +534,7 @@ public class MainView extends javax.swing.JFrame {
         jbSaveProduct = new javax.swing.JButton();
         jcbSupplierProduct = new javax.swing.JComboBox<>();
         jLabel13 = new javax.swing.JLabel();
-        jtfProductDescriptionProduct = new javax.swing.JTextField();
+        jtfPriceProduct = new javax.swing.JTextField();
         jScrollPane8 = new javax.swing.JScrollPane();
         jtProduct = new javax.swing.JTable();
         jsQuantityProduct = new javax.swing.JSpinner();
@@ -609,13 +750,13 @@ public class MainView extends javax.swing.JFrame {
         jPanel3.add(jLabel18);
         jLabel18.setBounds(170, 90, 120, 16);
 
-        jftIdProduct.addActionListener(new java.awt.event.ActionListener() {
+        jtfIdProduct.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jftIdProductActionPerformed(evt);
+                jtfIdProductActionPerformed(evt);
             }
         });
-        jPanel3.add(jftIdProduct);
-        jftIdProduct.setBounds(360, 80, 320, 22);
+        jPanel3.add(jtfIdProduct);
+        jtfIdProduct.setBounds(360, 80, 320, 22);
         jPanel3.add(jtfProductNameProduct);
         jtfProductNameProduct.setBounds(360, 130, 320, 22);
 
@@ -657,18 +798,15 @@ public class MainView extends javax.swing.JFrame {
         jLabel13.setText("PRICE:");
         jPanel3.add(jLabel13);
         jLabel13.setBounds(170, 240, 160, 16);
-        jPanel3.add(jtfProductDescriptionProduct);
-        jtfProductDescriptionProduct.setBounds(360, 230, 320, 30);
+        jPanel3.add(jtfPriceProduct);
+        jtfPriceProduct.setBounds(360, 230, 320, 30);
 
         jtProduct.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+
             },
             new String [] {
-                "ID", "PRODUCT NAME", "P. DESCRIPTION", "SUPPLIER", "QUANTITY"
+                "ID", "PRODUCT NAME", "SUPPLIER", "PRICE", "QUANTITY"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -894,9 +1032,9 @@ public class MainView extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jtfIdSupplierActionPerformed
 
-    private void jftIdProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jftIdProductActionPerformed
+    private void jtfIdProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtfIdProductActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jftIdProductActionPerformed
+    }//GEN-LAST:event_jtfIdProductActionPerformed
 
 //    /**
 //     * @param args the command line arguments
@@ -1006,7 +1144,6 @@ public class MainView extends javax.swing.JFrame {
     private javax.swing.JButton jbUpdateCustomer;
     private javax.swing.JButton jbUpdateProduct;
     private javax.swing.JComboBox<String> jcbSupplierProduct;
-    private javax.swing.JTextField jftIdProduct;
     private javax.swing.JPanel jpBuy;
     private javax.swing.JPanel jpSell;
     private javax.swing.JSpinner jsQuantityProduct;
@@ -1017,12 +1154,13 @@ public class MainView extends javax.swing.JFrame {
     private javax.swing.JTextField jtfDeleteProduct;
     private javax.swing.JTextField jtfDeleteSupplier;
     private javax.swing.JTextField jtfIdCustomer;
+    private javax.swing.JTextField jtfIdProduct;
     private javax.swing.JTextField jtfIdSupplier;
     private javax.swing.JTextField jtfNameCustomer;
     private javax.swing.JTextField jtfNameSupplier;
     private javax.swing.JTextField jtfPhoneNumberCustomer;
     private javax.swing.JTextField jtfPhoneNumberSupplier;
-    private javax.swing.JTextField jtfProductDescriptionProduct;
+    private javax.swing.JTextField jtfPriceProduct;
     private javax.swing.JTextField jtfProductNameProduct;
     private javax.swing.JTextField jtfSearchCustomer;
     private javax.swing.JTextField jtfSearchProduct;
