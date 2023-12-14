@@ -25,6 +25,7 @@ public class SupplierController
     {
         this.supplierDao = supplierDao;
         this.view = view;
+        this.view.setLocationRelativeTo(null);
         this.view.setVisible(true);
         
         this.view.addBtnSaveSupplierListener(new SupplierListener());

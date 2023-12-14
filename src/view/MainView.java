@@ -3,6 +3,7 @@ package view;
 import java.awt.event.ActionListener;
 import java.util.List;
 import javax.swing.table.DefaultTableModel;
+import model.Customer;
 import model.Supplier;
 
 /**
@@ -16,11 +17,13 @@ public class MainView extends javax.swing.JFrame {
      */
     
     DefaultTableModel modelSupplier;
+    DefaultTableModel modelCustomer;
     
     public MainView() 
     {
         initComponents();
-        modelSupplier = (DefaultTableModel) jtSupplier.getModel();        
+        modelSupplier = (DefaultTableModel) jtSupplier.getModel();
+        modelCustomer = (DefaultTableModel) jtCustomers.getModel();        
         setLocationRelativeTo(null);
     }
 
@@ -220,6 +223,123 @@ public class MainView extends javax.swing.JFrame {
         }
     }
     //--------------------------------------------------------------------------------------------------
+    
+    //CUSTOMERS:----------------------------------------------------------------------------------------
+    
+    public String getTextIdCustomer()
+    {
+        return jtfIdCustomer.getText();
+    }
+    
+    public void setTextIdCustomer(String text)
+    {
+        jtfIdCustomer.setText(text);
+    }
+    
+    //----------------------------------------
+    
+    public String getTextNameCustomer()
+    {
+        return jtfNameCustomer.getText();
+    }
+    
+    public void setTextNameCustomer(String text)
+    {
+        jtfNameCustomer.setText(text);
+    }
+    
+    //----------------------------------------
+        
+    public String getTextSurnamesCustomer()
+    {
+        return jtfSurnamesCustomer.getText();
+    }
+    
+    public void setTextSurnamesCustomer(String text)
+    {
+        jtfSurnamesCustomer.setText(text);
+    }
+    
+    //----------------------------------------
+    
+    public String getTextPhoneNumberCustomer()
+    {
+        return jtfPhoneNumberCustomer.getText();
+    }
+    
+    public void setTextPhoneNumberCustomer(String text)
+    {
+        jtfPhoneNumberCustomer.setText(text);
+    }
+    
+    //----------------------------------------
+    
+    public String getTextSearchCustomer()
+    {
+        return jtfSearchCustomer.getText();
+    }
+    
+    public void setTextSearchCustomer(String text)
+    {
+        jtfSearchCustomer.setText(text);
+    }
+    
+    //----------------------------------------
+    
+    public String getTextDeleteCustomer()
+    {
+        return jtfDeleteCustomer.getText();
+    }
+    
+    public void setTextDeleteCustomer(String text)
+    {
+        jtfDeleteCustomer.setText(text);
+    }
+            
+    //----------------------------------------
+    
+    public boolean cleanCustomerForm()
+    {
+        jtfIdCustomer.setText("");
+        jtfNameCustomer.setText("");
+        jtfSurnamesCustomer.setText("");
+        jtfPhoneNumberCustomer.setText("");
+        jtfSearchCustomer.setText("");
+        jtfDeleteCustomer.setText("");
+        jtfDeleteCustomer.setText("");
+        
+        return true;
+    }
+    
+    public void addRecordCustomer(Customer customer)
+    {
+        String id = customer.getId();
+        String name = customer.getName();
+        String surnames = customer.getSurnames();
+        String phoneNumber = customer.getPhoneNumber();
+        
+        modelCustomer.addRow(new Object[]{id, name, surnames, phoneNumber});        
+    }
+    
+    public void refreshCustomersTable(List<Customer> customers)
+    {
+        int rowCount = modelCustomer.getRowCount();
+        for (int i = rowCount - 1; i >= 0; i--) 
+        {
+            modelCustomer.removeRow(i);
+        }
+        
+        for(Customer customer: customers)
+        {
+            String id = customer.getId();
+            String name = customer.getName();
+            String surnames = customer.getSurnames();
+            String phoneNumber = customer.getPhoneNumber();
+
+            modelCustomer.addRow(new Object[]{id, name, surnames, phoneNumber}); 
+        }
+    }
+    //--------------------------------------------------------------------------------------------------
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -284,19 +404,19 @@ public class MainView extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
+        jtfIdCustomer = new javax.swing.JTextField();
+        jtfNameCustomer = new javax.swing.JTextField();
+        jtfSurnamesCustomer = new javax.swing.JTextField();
+        jtfPhoneNumberCustomer = new javax.swing.JTextField();
         jbSaveCustomer = new javax.swing.JButton();
         jbUpdateCustomer = new javax.swing.JButton();
         jbListAllCustomer = new javax.swing.JButton();
         jbSearchCustomer = new javax.swing.JButton();
         jbDeleteCustomer = new javax.swing.JButton();
-        jTextField5 = new javax.swing.JTextField();
-        jTextField6 = new javax.swing.JTextField();
+        jtfSearchCustomer = new javax.swing.JTextField();
+        jtfDeleteCustomer = new javax.swing.JTextField();
         jScrollPane9 = new javax.swing.JScrollPane();
-        jTable4 = new javax.swing.JTable();
+        jtCustomers = new javax.swing.JTable();
         jPanel5 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
@@ -595,19 +715,19 @@ public class MainView extends javax.swing.JFrame {
         jPanel4.add(jLabel9);
         jLabel9.setBounds(170, 240, 120, 16);
 
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        jtfIdCustomer.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                jtfIdCustomerActionPerformed(evt);
             }
         });
-        jPanel4.add(jTextField1);
-        jTextField1.setBounds(360, 80, 320, 22);
-        jPanel4.add(jTextField2);
-        jTextField2.setBounds(360, 130, 320, 22);
-        jPanel4.add(jTextField3);
-        jTextField3.setBounds(360, 180, 320, 22);
-        jPanel4.add(jTextField4);
-        jTextField4.setBounds(360, 230, 320, 22);
+        jPanel4.add(jtfIdCustomer);
+        jtfIdCustomer.setBounds(360, 80, 320, 22);
+        jPanel4.add(jtfNameCustomer);
+        jtfNameCustomer.setBounds(360, 130, 320, 22);
+        jPanel4.add(jtfSurnamesCustomer);
+        jtfSurnamesCustomer.setBounds(360, 180, 320, 22);
+        jPanel4.add(jtfPhoneNumberCustomer);
+        jtfPhoneNumberCustomer.setBounds(360, 230, 320, 22);
 
         jbSaveCustomer.setText("SAVE");
         jPanel4.add(jbSaveCustomer);
@@ -628,23 +748,28 @@ public class MainView extends javax.swing.JFrame {
         jbDeleteCustomer.setText("DELETE");
         jPanel4.add(jbDeleteCustomer);
         jbDeleteCustomer.setBounds(700, 600, 120, 23);
-        jPanel4.add(jTextField5);
-        jTextField5.setBounds(540, 560, 120, 22);
-        jPanel4.add(jTextField6);
-        jTextField6.setBounds(700, 560, 120, 22);
+        jPanel4.add(jtfSearchCustomer);
+        jtfSearchCustomer.setBounds(540, 560, 120, 22);
+        jPanel4.add(jtfDeleteCustomer);
+        jtfDeleteCustomer.setBounds(700, 560, 120, 22);
 
-        jTable4.setModel(new javax.swing.table.DefaultTableModel(
+        jtCustomers.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "ID", "NAME", "SURNAMES", "PHONE NUMBER"
             }
-        ));
-        jScrollPane9.setViewportView(jTable4);
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, true, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane9.setViewportView(jtCustomers);
 
         jPanel4.add(jScrollPane9);
         jScrollPane9.setBounds(50, 286, 770, 250);
@@ -761,9 +886,9 @@ public class MainView extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void jtfIdCustomerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtfIdCustomerActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_jtfIdCustomerActionPerformed
 
     private void jtfIdSupplierActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtfIdSupplierActionPerformed
         // TODO add your handling code here:
@@ -862,14 +987,7 @@ public class MainView extends javax.swing.JFrame {
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTable jTable1;
     private javax.swing.JTable jTable2;
-    private javax.swing.JTable jTable4;
     private javax.swing.JTable jTable6;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
     private javax.swing.JTextField jTextField7;
     private javax.swing.JTextField jTextField8;
     private javax.swing.JButton jbDeleteCustomer;
@@ -892,17 +1010,24 @@ public class MainView extends javax.swing.JFrame {
     private javax.swing.JPanel jpBuy;
     private javax.swing.JPanel jpSell;
     private javax.swing.JSpinner jsQuantityProduct;
+    private javax.swing.JTable jtCustomers;
     private javax.swing.JTable jtProduct;
     private javax.swing.JTable jtSupplier;
+    private javax.swing.JTextField jtfDeleteCustomer;
     private javax.swing.JTextField jtfDeleteProduct;
     private javax.swing.JTextField jtfDeleteSupplier;
+    private javax.swing.JTextField jtfIdCustomer;
     private javax.swing.JTextField jtfIdSupplier;
+    private javax.swing.JTextField jtfNameCustomer;
     private javax.swing.JTextField jtfNameSupplier;
+    private javax.swing.JTextField jtfPhoneNumberCustomer;
     private javax.swing.JTextField jtfPhoneNumberSupplier;
     private javax.swing.JTextField jtfProductDescriptionProduct;
     private javax.swing.JTextField jtfProductNameProduct;
+    private javax.swing.JTextField jtfSearchCustomer;
     private javax.swing.JTextField jtfSearchProduct;
     private javax.swing.JTextField jtfSearchSupplier;
+    private javax.swing.JTextField jtfSurnamesCustomer;
     private javax.swing.JTextField jtfSurnamesSupplier;
     // End of variables declaration//GEN-END:variables
 }
