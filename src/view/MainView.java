@@ -1,6 +1,7 @@
 package view;
 
 import java.awt.event.ActionListener;
+import java.util.List;
 import javax.swing.table.DefaultTableModel;
 import model.Supplier;
 
@@ -110,20 +111,72 @@ public class MainView extends javax.swing.JFrame {
         return jtfIdSupplier.getText();
     }
     
+    public void setTextIdSupplier(String text)
+    {
+        jtfIdSupplier.setText(text);
+    }
+    
+    //----------------------------------------
+    
     public String getTextNameSupplier()
     {
         return jtfNameSupplier.getText();
     }
     
+    public void setTextNameSupplier(String text)
+    {
+        jtfNameSupplier.setText(text);
+    }
+    
+    //----------------------------------------
+        
     public String getTextSurnamesSupplier()
     {
         return jtfSurnamesSupplier.getText();
     }
     
+    public void setTextSurnamesSupplier(String text)
+    {
+        jtfSurnamesSupplier.setText(text);
+    }
+    
+    //----------------------------------------
+    
     public String getTextPhoneNumberSupplier()
     {
         return jtfPhoneNumberSupplier.getText();
     }
+    
+    public void setTextPhoneNumberSupplier(String text)
+    {
+        jtfPhoneNumberSupplier.setText(text);
+    }
+    
+    //----------------------------------------
+    
+    public String getTextSearchSupplier()
+    {
+        return jtfSearchSupplier.getText();
+    }
+    
+    public void setTextSearchSupplier(String text)
+    {
+        jtfSearchSupplier.setText(text);
+    }
+    
+    //----------------------------------------
+    
+    public String getTextDeleteSupplier()
+    {
+        return jtfDeleteSupplier.getText();
+    }
+    
+    public void setTextDeleteSupplier(String text)
+    {
+        jtfDeleteSupplier.setText(text);
+    }
+            
+    //----------------------------------------
     
     public boolean cleanSupplierForm()
     {
@@ -132,6 +185,7 @@ public class MainView extends javax.swing.JFrame {
         jtfSurnamesSupplier.setText("");
         jtfPhoneNumberSupplier.setText("");
         jtfSearchSupplier.setText("");
+        jtfDeleteSupplier.setText("");
         jtfDeleteSupplier.setText("");
         
         return true;
@@ -145,6 +199,25 @@ public class MainView extends javax.swing.JFrame {
         String phoneNumber = supplier.getPhoneNumber();
         
         modelSupplier.addRow(new Object[]{id, name, surnames, phoneNumber});        
+    }
+    
+    public void refreshSuppliersTable(List<Supplier> suppliers)
+    {
+        int rowCount = modelSupplier.getRowCount();
+        for (int i = rowCount - 1; i >= 0; i--) 
+        {
+            modelSupplier.removeRow(i);
+        }
+        
+        for(Supplier supplier: suppliers)
+        {
+            String id = supplier.getId();
+            String name = supplier.getName();
+            String surnames = supplier.getSurnames();
+            String phoneNumber = supplier.getPhoneNumber();
+
+            modelSupplier.addRow(new Object[]{id, name, surnames, phoneNumber}); 
+        }
     }
     //--------------------------------------------------------------------------------------------------
     @SuppressWarnings("unchecked")
