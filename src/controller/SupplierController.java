@@ -133,6 +133,7 @@ public class SupplierController
                         view.refreshSuppliersTable(supplierDao.getAllSuppliers());
                         infoMessage("Supplier updated successfully!", "Supplier Updated");
                         view.cleanSupplierForm();
+                        view.updateSupplierInComboBox(id, name);
                         
                     }
                     
@@ -204,6 +205,7 @@ public class SupplierController
                          infoMessage("The supplier with id "+supplierId+" was deleted successfully", "Supplier deleted");
                          view.refreshSuppliersTable(supplierDao.getAllSuppliers());
                          view.cleanSupplierForm();
+                         view.deleteSupplierInComboBox(supplierId);
                      }
                      
                      else

@@ -29,7 +29,7 @@ public class MainView extends javax.swing.JFrame {
         modelProduct = (DefaultTableModel) jtProduct.getModel();        
         setLocationRelativeTo(null);
     }
-
+    
     //--------------------------------------------------------------------------------------------------
     public void addBtnSaveProductListener(ActionListener listenControllers)
     {
@@ -208,6 +208,40 @@ public class MainView extends javax.swing.JFrame {
         addJcbSupplierProduct(name,id);
     }
     
+    public void updateSupplierInComboBox(String supplierId, String newName) 
+    {
+        for (int i = 0; i < jcbSupplierProduct.getItemCount(); i++) 
+        {
+            String supplierCombo = (String) jcbSupplierProduct.getItemAt(i);
+            String[] parts = supplierCombo.split("-");
+            String currentSupplierId = parts[1].strip();
+            
+            if (currentSupplierId.equals(supplierId)) 
+            {
+                jcbSupplierProduct.removeItemAt(i);
+                jcbSupplierProduct.insertItemAt(newName + " - " + supplierId, i);
+                break; 
+            }
+        }
+    }   
+
+    public void deleteSupplierInComboBox(String supplierId) 
+    {
+        for (int i = 0; i < jcbSupplierProduct.getItemCount(); i++) 
+        {
+            String supplierCombo = (String) jcbSupplierProduct.getItemAt(i);
+            String[] parts = supplierCombo.split("-");
+            String currentSupplierId = parts[1].strip();
+            
+            if (currentSupplierId.equals(supplierId)) 
+            {
+                jcbSupplierProduct.removeItemAt(i);
+                break; 
+            }
+        }
+    }
+
+    
     public void refreshSuppliersTable(List<Supplier> suppliers)
     {
         int rowCount = modelSupplier.getRowCount();
@@ -378,7 +412,7 @@ public class MainView extends javax.swing.JFrame {
     
     public void setTextSupplierProduct(String text)
     {
-        jcbSupplierProduct.setSelectedIndex(-1);
+        jcbSupplierProduct.setSelectedItem(text);
     }
     
     //----------------------------------------
@@ -388,10 +422,11 @@ public class MainView extends javax.swing.JFrame {
         return jtfPriceProduct.getText();
     }
     
-    public void setTextPhoneNumberProduct(String text)
+    public void setTextPriceProduct(int text) 
     {
-        jtfPriceProduct.setText(text);
+        jtfPriceProduct.setText(String.valueOf(text));
     }
+
     
     //----------------------------------------
     
@@ -597,20 +632,20 @@ public class MainView extends javax.swing.JFrame {
         jLabel1.setBounds(350, 20, 110, 60);
 
         jpSell.add(jComboBox4);
-        jComboBox4.setBounds(400, 80, 250, 22);
+        jComboBox4.setBounds(400, 80, 250, 26);
 
         jpSell.add(jComboBox5);
-        jComboBox5.setBounds(400, 130, 250, 22);
+        jComboBox5.setBounds(400, 130, 250, 26);
         jpSell.add(jSpinner2);
-        jSpinner2.setBounds(400, 260, 80, 22);
+        jSpinner2.setBounds(400, 260, 80, 26);
 
         jButton18.setText("SELL");
         jpSell.add(jButton18);
-        jButton18.setBounds(450, 580, 140, 23);
+        jButton18.setBounds(450, 580, 140, 27);
 
         jButton19.setText("CLEAN FORM");
         jpSell.add(jButton19);
-        jButton19.setBounds(230, 580, 130, 23);
+        jButton19.setBounds(230, 580, 130, 27);
 
         jLabel22.setText("QUANTITY:");
         jpSell.add(jLabel22);
@@ -620,9 +655,9 @@ public class MainView extends javax.swing.JFrame {
         jpSell.add(jLabel23);
         jLabel23.setBounds(220, 180, 150, 16);
 
-        jLabel24.setText("PRODUCT NAME:");
+        jLabel24.setText("PRODUCT:");
         jpSell.add(jLabel24);
-        jLabel24.setBounds(220, 140, 100, 16);
+        jLabel24.setBounds(220, 140, 150, 16);
 
         jLabel25.setText("CUSTOMER:");
         jpSell.add(jLabel25);
@@ -654,13 +689,13 @@ public class MainView extends javax.swing.JFrame {
 
         jButton20.setText("ADD PRODUCT");
         jpSell.add(jButton20);
-        jButton20.setBounds(400, 310, 190, 23);
+        jButton20.setBounds(400, 310, 190, 27);
 
         jButton22.setText("DELETE PRODUCT");
         jpSell.add(jButton22);
-        jButton22.setBounds(600, 310, 200, 23);
+        jButton22.setBounds(600, 310, 200, 27);
         jpSell.add(jTextField8);
-        jTextField8.setBounds(400, 170, 250, 22);
+        jTextField8.setBounds(400, 170, 250, 26);
 
         jTabbedPane1.addTab("SELL", jpSell);
 
@@ -676,28 +711,28 @@ public class MainView extends javax.swing.JFrame {
         jLabel10.setBounds(220, 80, 100, 16);
 
         jpBuy.add(jComboBox2);
-        jComboBox2.setBounds(400, 70, 250, 22);
+        jComboBox2.setBounds(400, 70, 250, 26);
 
-        jLabel11.setText("PRODUCT NAME:");
+        jLabel11.setText("PRODUCT:");
         jpBuy.add(jLabel11);
-        jLabel11.setBounds(220, 130, 100, 16);
+        jLabel11.setBounds(220, 130, 130, 16);
 
         jpBuy.add(jComboBox3);
-        jComboBox3.setBounds(400, 120, 250, 22);
+        jComboBox3.setBounds(400, 120, 250, 26);
 
         jLabel12.setText("QUANTITY:");
         jpBuy.add(jLabel12);
         jLabel12.setBounds(220, 280, 90, 16);
         jpBuy.add(jSpinner1);
-        jSpinner1.setBounds(400, 270, 80, 22);
+        jSpinner1.setBounds(400, 270, 80, 26);
 
         jButton16.setText("CLEAN FORM");
         jpBuy.add(jButton16);
-        jButton16.setBounds(200, 590, 150, 23);
+        jButton16.setBounds(200, 590, 150, 27);
 
         jButton17.setText("BUY");
         jpBuy.add(jButton17);
-        jButton17.setBounds(450, 590, 160, 23);
+        jButton17.setBounds(450, 590, 160, 27);
 
         jLabel19.setText("PRICE:");
         jpBuy.add(jLabel19);
@@ -729,13 +764,13 @@ public class MainView extends javax.swing.JFrame {
 
         jButton21.setText("ADD PRODUCT");
         jpBuy.add(jButton21);
-        jButton21.setBounds(400, 310, 190, 23);
+        jButton21.setBounds(400, 310, 190, 27);
 
         jButton23.setText("DELETE PRODUCT");
         jpBuy.add(jButton23);
-        jButton23.setBounds(600, 310, 200, 23);
+        jButton23.setBounds(600, 310, 200, 27);
         jpBuy.add(jTextField7);
-        jTextField7.setBounds(410, 160, 240, 22);
+        jTextField7.setBounds(400, 160, 250, 26);
 
         jTabbedPane1.addTab("BUY", jpBuy);
 
@@ -756,9 +791,9 @@ public class MainView extends javax.swing.JFrame {
             }
         });
         jPanel3.add(jtfIdProduct);
-        jtfIdProduct.setBounds(360, 80, 320, 22);
+        jtfIdProduct.setBounds(360, 80, 320, 26);
         jPanel3.add(jtfProductNameProduct);
-        jtfProductNameProduct.setBounds(360, 130, 320, 22);
+        jtfProductNameProduct.setBounds(360, 130, 320, 26);
 
         jLabel20.setText("SUPPLIER:");
         jPanel3.add(jLabel20);
@@ -768,32 +803,32 @@ public class MainView extends javax.swing.JFrame {
         jPanel3.add(jLabel21);
         jLabel21.setBounds(170, 140, 120, 16);
         jPanel3.add(jtfDeleteProduct);
-        jtfDeleteProduct.setBounds(700, 560, 120, 22);
+        jtfDeleteProduct.setBounds(700, 560, 120, 26);
 
         jbDeleteProduct.setText("DELETE");
         jPanel3.add(jbDeleteProduct);
-        jbDeleteProduct.setBounds(700, 600, 120, 23);
+        jbDeleteProduct.setBounds(700, 600, 120, 27);
         jPanel3.add(jtfSearchProduct);
-        jtfSearchProduct.setBounds(540, 560, 120, 22);
+        jtfSearchProduct.setBounds(540, 560, 120, 26);
 
         jbSearchProduct.setText("SEARCH");
         jPanel3.add(jbSearchProduct);
-        jbSearchProduct.setBounds(540, 600, 120, 23);
+        jbSearchProduct.setBounds(540, 600, 120, 27);
 
         jbListAllProduct.setText("LIST ALL");
         jPanel3.add(jbListAllProduct);
-        jbListAllProduct.setBounds(380, 600, 120, 23);
+        jbListAllProduct.setBounds(380, 600, 120, 27);
 
         jbUpdateProduct.setText("UPDATE");
         jPanel3.add(jbUpdateProduct);
-        jbUpdateProduct.setBounds(220, 600, 120, 23);
+        jbUpdateProduct.setBounds(220, 600, 120, 27);
 
         jbSaveProduct.setText("SAVE");
         jPanel3.add(jbSaveProduct);
-        jbSaveProduct.setBounds(50, 600, 120, 23);
+        jbSaveProduct.setBounds(50, 600, 120, 27);
 
         jPanel3.add(jcbSupplierProduct);
-        jcbSupplierProduct.setBounds(360, 180, 320, 22);
+        jcbSupplierProduct.setBounds(360, 180, 320, 26);
 
         jLabel13.setText("PRICE:");
         jPanel3.add(jLabel13);
@@ -822,7 +857,7 @@ public class MainView extends javax.swing.JFrame {
         jPanel3.add(jScrollPane8);
         jScrollPane8.setBounds(50, 316, 770, 230);
         jPanel3.add(jsQuantityProduct);
-        jsQuantityProduct.setBounds(360, 280, 80, 22);
+        jsQuantityProduct.setBounds(360, 280, 80, 26);
 
         jLabel26.setText("QUANTITY:");
         jPanel3.add(jLabel26);
@@ -859,37 +894,37 @@ public class MainView extends javax.swing.JFrame {
             }
         });
         jPanel4.add(jtfIdCustomer);
-        jtfIdCustomer.setBounds(360, 80, 320, 22);
+        jtfIdCustomer.setBounds(360, 80, 320, 26);
         jPanel4.add(jtfNameCustomer);
-        jtfNameCustomer.setBounds(360, 130, 320, 22);
+        jtfNameCustomer.setBounds(360, 130, 320, 26);
         jPanel4.add(jtfSurnamesCustomer);
-        jtfSurnamesCustomer.setBounds(360, 180, 320, 22);
+        jtfSurnamesCustomer.setBounds(360, 180, 320, 26);
         jPanel4.add(jtfPhoneNumberCustomer);
-        jtfPhoneNumberCustomer.setBounds(360, 230, 320, 22);
+        jtfPhoneNumberCustomer.setBounds(360, 230, 320, 26);
 
         jbSaveCustomer.setText("SAVE");
         jPanel4.add(jbSaveCustomer);
-        jbSaveCustomer.setBounds(50, 600, 120, 23);
+        jbSaveCustomer.setBounds(50, 600, 120, 27);
 
         jbUpdateCustomer.setText("UPDATE");
         jPanel4.add(jbUpdateCustomer);
-        jbUpdateCustomer.setBounds(220, 600, 120, 23);
+        jbUpdateCustomer.setBounds(220, 600, 120, 27);
 
         jbListAllCustomer.setText("LIST ALL");
         jPanel4.add(jbListAllCustomer);
-        jbListAllCustomer.setBounds(380, 600, 120, 23);
+        jbListAllCustomer.setBounds(380, 600, 120, 27);
 
         jbSearchCustomer.setText("SEARCH");
         jPanel4.add(jbSearchCustomer);
-        jbSearchCustomer.setBounds(540, 600, 120, 23);
+        jbSearchCustomer.setBounds(540, 600, 120, 27);
 
         jbDeleteCustomer.setText("DELETE");
         jPanel4.add(jbDeleteCustomer);
-        jbDeleteCustomer.setBounds(700, 600, 120, 23);
+        jbDeleteCustomer.setBounds(700, 600, 120, 27);
         jPanel4.add(jtfSearchCustomer);
-        jtfSearchCustomer.setBounds(540, 560, 120, 22);
+        jtfSearchCustomer.setBounds(540, 560, 120, 26);
         jPanel4.add(jtfDeleteCustomer);
-        jtfDeleteCustomer.setBounds(700, 560, 120, 22);
+        jtfDeleteCustomer.setBounds(700, 560, 120, 26);
 
         jtCustomers.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -931,13 +966,13 @@ public class MainView extends javax.swing.JFrame {
             }
         });
         jPanel5.add(jtfIdSupplier);
-        jtfIdSupplier.setBounds(360, 80, 320, 22);
+        jtfIdSupplier.setBounds(360, 80, 320, 26);
         jPanel5.add(jtfNameSupplier);
-        jtfNameSupplier.setBounds(360, 130, 320, 22);
+        jtfNameSupplier.setBounds(360, 130, 320, 26);
         jPanel5.add(jtfSurnamesSupplier);
-        jtfSurnamesSupplier.setBounds(360, 180, 320, 22);
+        jtfSurnamesSupplier.setBounds(360, 180, 320, 26);
         jPanel5.add(jtfPhoneNumberSupplier);
-        jtfPhoneNumberSupplier.setBounds(360, 230, 320, 22);
+        jtfPhoneNumberSupplier.setBounds(360, 230, 320, 26);
 
         jLabel15.setText("PHONE NUMBER:");
         jPanel5.add(jLabel15);
@@ -951,29 +986,29 @@ public class MainView extends javax.swing.JFrame {
         jPanel5.add(jLabel17);
         jLabel17.setBounds(170, 140, 120, 16);
         jPanel5.add(jtfDeleteSupplier);
-        jtfDeleteSupplier.setBounds(700, 560, 120, 22);
+        jtfDeleteSupplier.setBounds(700, 560, 120, 26);
 
         jbSupplierDelete.setText("DELETE");
         jPanel5.add(jbSupplierDelete);
-        jbSupplierDelete.setBounds(700, 600, 120, 23);
+        jbSupplierDelete.setBounds(700, 600, 120, 27);
         jPanel5.add(jtfSearchSupplier);
-        jtfSearchSupplier.setBounds(540, 560, 120, 22);
+        jtfSearchSupplier.setBounds(540, 560, 120, 26);
 
         jbSupplierSearch.setText("SEARCH");
         jPanel5.add(jbSupplierSearch);
-        jbSupplierSearch.setBounds(540, 600, 120, 23);
+        jbSupplierSearch.setBounds(540, 600, 120, 27);
 
         jbSupplierListAll.setText("LIST ALL");
         jPanel5.add(jbSupplierListAll);
-        jbSupplierListAll.setBounds(380, 600, 120, 23);
+        jbSupplierListAll.setBounds(380, 600, 120, 27);
 
         jbSupplierUpdate.setText("UPDATE");
         jPanel5.add(jbSupplierUpdate);
-        jbSupplierUpdate.setBounds(220, 600, 120, 23);
+        jbSupplierUpdate.setBounds(220, 600, 120, 27);
 
         jbSupplierSave.setText("SAVE");
         jPanel5.add(jbSupplierSave);
-        jbSupplierSave.setBounds(50, 600, 120, 23);
+        jbSupplierSave.setBounds(50, 600, 120, 27);
 
         jtSupplier.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -1036,40 +1071,7 @@ public class MainView extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jtfIdProductActionPerformed
 
-//    /**
-//     * @param args the command line arguments
-//     */
-//    public static void main(String args[]) {
-//        /* Set the Nimbus look and feel */
-//        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-//        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-//         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-//         */
-//        try {
-//            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-//                if ("Nimbus".equals(info.getName())) {
-//                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-//                    break;
-//                }
-//            }
-//        } catch (ClassNotFoundException ex) {
-//            java.util.logging.Logger.getLogger(MainView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        } catch (InstantiationException ex) {
-//            java.util.logging.Logger.getLogger(MainView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        } catch (IllegalAccessException ex) {
-//            java.util.logging.Logger.getLogger(MainView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-//            java.util.logging.Logger.getLogger(MainView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        }
-//        //</editor-fold>
-//
-//        /* Create and display the form */
-//        java.awt.EventQueue.invokeLater(new Runnable() {
-//            public void run() {
-//                new MainView().setVisible(true);
-//            }
-//        });
-//    }
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton16;

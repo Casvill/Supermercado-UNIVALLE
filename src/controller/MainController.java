@@ -1,6 +1,7 @@
 package controller;
 
 import dao.CustomerDaoImplementation;
+import dao.ProductDaoImplementation;
 import dao.SupplierDaoImplementation;
 import view.MainView;
 
@@ -12,7 +13,14 @@ public class MainController
 {
     public static void main(String args[]) 
     {
-//        new SupplierController(new SupplierDaoImplementation(), new MainView());
-        new CustomerController(new CustomerDaoImplementation(), new MainView());
+        MainView view = new MainView();        
+        int tab = 4;
+        System.out.println(tab);
+        
+       
+        new SupplierController(new SupplierDaoImplementation(), view);                
+        new CustomerController(new CustomerDaoImplementation(), view);                
+        new ProductController(new ProductDaoImplementation(), view);
+        
     }
 }
