@@ -1,68 +1,65 @@
 package controller;
 
-import dao.BuyDaoImplementation;
+import dao.SellDaoImplementation;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.JRootPane;
-import model.Buy;
+import model.Sell;
 import view.MainView;
 
 /**
  *
  * @author Daniel Casvill
  */
-public class BuyController 
+public class SellController 
 {
-    private BuyDaoImplementation buyDao;
+    private SellDaoImplementation sellDao;
     private MainView view;
-
+    
     //--------------------------------------------------------------------------------------------------
     
-    public BuyController(BuyDaoImplementation buyDao, MainView view) 
+    public SellController(SellDaoImplementation sellDao, MainView view) 
     {
-        this.buyDao = buyDao;
+        this.sellDao = sellDao;
         this.view = view;
         
-        this.view.addBtnBuyListener(new BuyListener());
-        this.view.addBtnCleanFormBuyListener(new BuyListener());
+        this.view.addBtnCleanFormSellListener(new SellListener());
+        this.view.addBtnSellListener(new SellListener());
+    }
+    
+    //--------------------------------------------------------------------------------------------------    
+    
+    //--------------------------------------------------------
+    
+    public boolean addSell(Sell sell)
+    {
+        return sellDao.addSell(sell);
+    }
+    
+    //--------------------------------------------------------
+    
+    public List<Sell> getSells()
+    {
+        return sellDao.getSells();
     }
     
     //--------------------------------------------------------------------------------------------------
     
-    //--------------------------------------------------------
-    
-    public boolean addBuy(Buy buy)
-    {
-        return buyDao.addBuy(buy);
-    }
-    
-    //--------------------------------------------------------
-    
-    public List<Buy> getBuys()
-    {
-        return buyDao.getBuys();
-    }
-    
-    //--------------------------------------------------------
-    
-    //--------------------------------------------------------------------------------------------------
-    
-    class BuyListener implements ActionListener
+    class SellListener implements ActionListener
     {
         //------------------------------------------------------------------------------------
         @Override
         public void actionPerformed(ActionEvent e) 
         {
             //------------------------------------------------------------------------------------
-            
-            if(e.getActionCommand().equalsIgnoreCase("BUY"))
-            {                
-                String supplier = view.getTextSupplierBuy();
-                String product = view.getTextSupplierBuy();
-                String price = view.getPriceBuy();
-                int quantity = view.getQuantityBuy();
+            if(e.getActionCommand().equalsIgnoreCase("SELL"))
+            {
+                String customer = view.getCustomerSell();
+                String product = view.getProductSell();
+                String price = view.getPriceSell();
+                int quantity = view.getQuantitySell();
                 
                 int parsedPrice = 0;
                 
@@ -73,21 +70,21 @@ public class BuyController
                 catch(NumberFormatException exception)
                 {
                     warningMessage("The price must be a numeric value.");
-                    view.setPriceBuy(0);
+                    view.setPriceSell(0);
                 }
                 
-                boolean verification = verifyFields(supplier, product, price, quantity, parsedPrice);
+                boolean verification = verifyFields(customer, product, price, quantity, parsedPrice);
                 
                 if(verification)
                 {
-                    Buy buy = new Buy(supplier, product, parsedPrice, quantity, quantity);
-                    boolean add = addBuy(buy);
+                    Sell sell = new Sell(customer, product, parsedPrice, quantity, quantity);
+                    boolean add = addSell(sell);
                     
                     if(add)
                     {
-                        infoMessage("Buy Completed successfully!", "Buy completed");
-                        view.addRecordBuy(buy);
-                        view.cleanBuyForm();
+                        infoMessage("Sell Completed successfully!", "Sell completed");
+                        view.addRecordSell(sell);
+                        view.cleanSellForm();                        
                     }
                 }
             }
@@ -96,8 +93,10 @@ public class BuyController
             
             if(e.getActionCommand().equalsIgnoreCase("CLEAN FORM"))
             {
-                view.cleanBuyForm();
+                view.cleanSellForm();
             }
+            
+            //------------------------------------------------------------------------------------
         }
         
         //------------------------------------------------------------------------------------
@@ -136,5 +135,11 @@ public class BuyController
             
             return true;
         }
+        
+        //------------------------------------------------------------------------------------        
     }
+    
+    
+    
 }
+

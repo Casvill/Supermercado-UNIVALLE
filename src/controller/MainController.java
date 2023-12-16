@@ -3,6 +3,7 @@ package controller;
 import dao.BuyDaoImplementation;
 import dao.CustomerDaoImplementation;
 import dao.ProductDaoImplementation;
+import dao.SellDaoImplementation;
 import dao.SupplierDaoImplementation;
 import view.MainView;
 
@@ -20,5 +21,6 @@ public class MainController
         new CustomerController(new CustomerDaoImplementation(), view);                
         new ProductController(new ProductDaoImplementation(), view);
         new BuyController(new BuyDaoImplementation(), view);
+        new SellController(new SellDaoImplementation(), view);
     }
 }

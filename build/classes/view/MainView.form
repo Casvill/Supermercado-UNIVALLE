@@ -74,7 +74,7 @@
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="javax.swing.JComboBox" name="jComboBox4">
+            <Component class="javax.swing.JComboBox" name="jcbCustomerSell">
               <Properties>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                   <StringArray count="0"/>
@@ -104,14 +104,14 @@
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="javax.swing.JSpinner" name="jSpinner2">
+            <Component class="javax.swing.JSpinner" name="jsQuantitySell">
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                   <AbsoluteConstraints x="390" y="360" width="80" height="-1"/>
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="javax.swing.JButton" name="jButton18">
+            <Component class="javax.swing.JButton" name="jbSell">
               <Properties>
                 <Property name="text" type="java.lang.String" value="SELL"/>
               </Properties>
@@ -121,7 +121,7 @@
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="javax.swing.JButton" name="jButton19">
+            <Component class="javax.swing.JButton" name="jbCleanFormSell">
               <Properties>
                 <Property name="text" type="java.lang.String" value="CLEAN FORM"/>
               </Properties>
@@ -171,33 +171,10 @@
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="javax.swing.JTextField" name="jTextField8">
-              <Properties>
-                <Property name="editable" type="boolean" value="false"/>
-              </Properties>
+            <Component class="javax.swing.JTextField" name="jtfPriceSell">
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                   <AbsoluteConstraints x="390" y="270" width="250" height="-1"/>
-                </Constraint>
-              </Constraints>
-            </Component>
-            <Component class="javax.swing.JLabel" name="jLabel27">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="TOTAL:"/>
-              </Properties>
-              <Constraints>
-                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="210" y="450" width="130" height="-1"/>
-                </Constraint>
-              </Constraints>
-            </Component>
-            <Component class="javax.swing.JTextField" name="jTextField1">
-              <Properties>
-                <Property name="editable" type="boolean" value="false"/>
-              </Properties>
-              <Constraints>
-                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="390" y="440" width="260" height="-1"/>
                 </Constraint>
               </Constraints>
             </Component>
@@ -1039,7 +1016,7 @@
 
               <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
               <SubComponents>
-                <Component class="javax.swing.JTable" name="jTable6">
+                <Component class="javax.swing.JTable" name="jtSales">
                   <Properties>
                     <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                       <Table columnCount="4" rowCount="0">
