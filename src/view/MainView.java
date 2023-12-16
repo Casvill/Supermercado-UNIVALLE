@@ -255,6 +255,20 @@ public class MainView extends javax.swing.JFrame {
                 break; 
             }
         }
+        
+        for (int i = 0; i < jcbSupplierBuy.getItemCount(); i++) 
+        {
+            String supplierCombo = (String) jcbSupplierBuy.getItemAt(i);
+            String[] parts = supplierCombo.split("-");
+            String currentSupplierId = parts[1].strip();
+            
+            if (currentSupplierId.equals(supplierId)) 
+            {
+                jcbSupplierBuy.removeItemAt(i);
+                jcbSupplierBuy.insertItemAt(newName + " - " + supplierId, i);
+                break; 
+            }
+        }
     }   
 
     public void deleteSupplierInComboBox(String supplierId) 
@@ -268,6 +282,19 @@ public class MainView extends javax.swing.JFrame {
             if (currentSupplierId.equals(supplierId)) 
             {
                 jcbSupplierProduct.removeItemAt(i);
+                break; 
+            }
+        }
+        
+        for (int i = 0; i < jcbSupplierBuy.getItemCount(); i++) 
+        {
+            String supplierCombo = (String) jcbSupplierBuy.getItemAt(i);
+            String[] parts = supplierCombo.split("-");
+            String currentSupplierId = parts[1].strip();
+            
+            if (currentSupplierId.equals(supplierId)) 
+            {
+                jcbSupplierBuy.removeItemAt(i);
                 break; 
             }
         }
@@ -390,6 +417,39 @@ public class MainView extends javax.swing.JFrame {
         
         modelCustomer.addRow(new Object[]{id, name, surnames, phoneNumber}); 
         addJcbCustomerSell(name, id);
+    }
+    
+    public void updateCustomerInComboBox(String supplierId, String newName) 
+    {
+        for (int i = 0; i < jcbCustomerSell.getItemCount(); i++) 
+        {
+            String supplierCombo = (String) jcbCustomerSell.getItemAt(i);
+            String[] parts = supplierCombo.split("-");
+            String currentSupplierId = parts[1].strip();
+            System.out.println(currentSupplierId+"  "+supplierId);
+            if (currentSupplierId.equals(supplierId)) 
+            {
+                jcbCustomerSell.removeItemAt(i);
+                jcbCustomerSell.insertItemAt(newName + " - " + supplierId, i);
+                break; 
+            }
+        }        
+    }   
+
+    public void deleteCustomerInComboBox(String supplierId) 
+    {
+        for (int i = 0; i < jcbCustomerSell.getItemCount(); i++) 
+        {
+            String supplierCombo = (String) jcbCustomerSell.getItemAt(i);
+            String[] parts = supplierCombo.split("-");
+            String currentSupplierId = parts[1].strip();
+            
+            if (currentSupplierId.equals(supplierId)) 
+            {
+                jcbCustomerSell.removeItemAt(i);
+                break; 
+            }
+        }        
     }
     
     public void refreshCustomersTable(List<Customer> customers)
@@ -526,6 +586,67 @@ public class MainView extends javax.swing.JFrame {
         addJcbProductSell(name, id);
     }
     
+    public void updateProductInComboBox(String productId, String newName) 
+    {
+        System.out.println("holi");
+        for (int i = 0; i < jcbProductBuy.getItemCount(); i++) 
+        {
+            String supplierCombo = (String) jcbProductBuy.getItemAt(i);
+            String[] parts = supplierCombo.split("-");
+            String currentSupplierId = parts[1].strip();
+            
+            if (currentSupplierId.equals(productId)) 
+            {
+                jcbProductBuy.removeItemAt(i);
+                jcbProductBuy.insertItemAt(newName + " - " + productId, i);
+                break; 
+            }
+        }
+        
+        for (int i = 0; i < jcbProductSell.getItemCount(); i++) 
+        {
+            String supplierCombo = (String) jcbProductSell.getItemAt(i);
+            String[] parts = supplierCombo.split("-");
+            String currentSupplierId = parts[1].strip();
+            
+            if (currentSupplierId.equals(productId)) 
+            {
+                jcbProductSell.removeItemAt(i);
+                jcbProductSell.insertItemAt(newName + " - " + productId, i);
+                break; 
+            }
+        }
+    }   
+
+    public void deleteProductInComboBox(String productId) 
+    {
+        for (int i = 0; i < jcbProductBuy.getItemCount(); i++) 
+        {
+            String productCombo = (String) jcbProductBuy.getItemAt(i);
+            String[] parts = productCombo.split("-");
+            String currentSupplierId = parts[1].strip();
+            
+            if (currentSupplierId.equals(productId)) 
+            {
+                jcbProductBuy.removeItemAt(i);
+                break; 
+            }
+        }
+        
+        for (int i = 0; i < jcbProductSell.getItemCount(); i++) 
+        {
+            String productCombo = (String) jcbProductSell.getItemAt(i);
+            String[] parts = productCombo.split("-");
+            String currentSupplierId = parts[1].strip();
+            
+            if (currentSupplierId.equals(productId)) 
+            {
+                jcbProductSell.removeItemAt(i);
+                break; 
+            }
+        }
+    }
+    
     public void refreshProductsTable(List<Product> products)
     {
         int rowCount = modelProduct.getRowCount();
@@ -623,12 +744,12 @@ public class MainView extends javax.swing.JFrame {
     
     public void addJcbSupplierBuy(String name, String id)
     {
-        jcbSupplierBuy.addItem(name + "-" + id);
+        jcbSupplierBuy.addItem(name + " - " + id);
     }
     
     public void addJcbProductBuy(String name, String id)
     {
-        jcbProductBuy.addItem(name + "-" + id);
+        jcbProductBuy.addItem(name + " - " + id);
     }
     
     //--------------------------------------------------------------------------------------------------
@@ -705,12 +826,12 @@ public class MainView extends javax.swing.JFrame {
     
     public void addJcbCustomerSell(String name, String id)
     {
-        jcbCustomerSell.addItem(name + "-" + id);
+        jcbCustomerSell.addItem(name + " - " + id);
     }
     
     public void addJcbProductSell(String name, String id)
     {
-        jcbProductSell.addItem(name + "-" + id);
+        jcbProductSell.addItem(name + " - " + id);
     }
     
     //--------------------------------------------------------------------------------------------------
@@ -1171,9 +1292,17 @@ public class MainView extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "CUSTOMER", "PRODUCT", "PRICE", "QUANTITY"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, true, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         jScrollPane11.setViewportView(jtSales);
 
         jPanel1.add(jScrollPane11);

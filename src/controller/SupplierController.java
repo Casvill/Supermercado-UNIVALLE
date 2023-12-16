@@ -134,7 +134,6 @@ public class SupplierController
                         infoMessage("Supplier updated successfully!", "Supplier Updated");
                         view.cleanSupplierForm();
                         view.updateSupplierInComboBox(id, name);
-                        
                     }
                     
                     else

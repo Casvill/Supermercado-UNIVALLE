@@ -155,7 +155,7 @@ public class ProductController
                         view.refreshProductsTable(getProducts());
                         infoMessage("Product updated successfully!", "Product Updated");
                         view.cleanProductForm();
-                        
+                        view.updateProductInComboBox(id, name);
                     }
                     
                     else
@@ -228,6 +228,7 @@ public class ProductController
                          infoMessage("The product with id " + productId + " was deleted successfully", "Supplier deleted");
                          view.refreshProductsTable(getProducts());
                          view.cleanProductForm();
+                         view.deleteProductInComboBox(productId);
                      }
                      
                      else

@@ -131,7 +131,7 @@ public class CustomerController
                         view.refreshCustomersTable(customerDao.getAllCustomers());
                         infoMessage("Customer updated successfully!", "Customer Updated");
                         view.cleanCustomerForm();
-                        
+                        view.updateCustomerInComboBox(id, name);
                     }
                     
                     else
@@ -202,6 +202,7 @@ public class CustomerController
                          infoMessage("The customer with id "+customerId+" was deleted successfully", "Customer deleted");
                          view.refreshCustomersTable(customerDao.getAllCustomers());
                          view.cleanCustomerForm();
+                         view.deleteCustomerInComboBox(customerId);
                      }
                      
                      else
