@@ -114,6 +114,7 @@ public class ProductController
                         view.addRecordProduct(product);
                         view.cleanProductForm();
                     }
+                    
                     else
                     {
                         warningMessage("The product with id "+id+" already exist.");
@@ -262,7 +263,7 @@ public class ProductController
 
             else if(parsedPrice <= 0)
             {
-                warningMessage("The price must be grater than 0");
+                warningMessage("The price must be greater than 0");
                 return false;
             }
 

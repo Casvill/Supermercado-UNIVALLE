@@ -130,7 +130,7 @@ public class SupplierController
                     
                     if(update)
                     {
-                        view.refreshSuppliersTable(supplierDao.getAllSuppliers());
+                        view.refreshSuppliersTable(getSuppliers());
                         infoMessage("Supplier updated successfully!", "Supplier Updated");
                         view.cleanSupplierForm();
                         view.updateSupplierInComboBox(id, name);
@@ -148,7 +148,7 @@ public class SupplierController
              
              if(e.getActionCommand().equalsIgnoreCase("LIST ALL"))
              {
-                 view.refreshSuppliersTable(supplierDao.getAllSuppliers());
+                 view.refreshSuppliersTable(getSuppliers());
              }
              
              //------------------------------------------------------------------------------------
@@ -164,7 +164,7 @@ public class SupplierController
                  
                  else
                  {
-                     Supplier supplier = supplierDao.getSupplier(supplierId);
+                     Supplier supplier = getSupplier(supplierId);
                      
                      if(supplier == null)
                      {
@@ -198,12 +198,12 @@ public class SupplierController
                  
                  else
                  {
-                     boolean delete = supplierDao.deleteSupplier(supplierId);
+                     boolean delete = deleteSupplier(supplierId);
                      
                      if(delete)
                      {
                          infoMessage("The supplier with id "+supplierId+" was deleted successfully", "Supplier deleted");
-                         view.refreshSuppliersTable(supplierDao.getAllSuppliers());
+                         view.refreshSuppliersTable(getSuppliers());
                          view.cleanSupplierForm();
                          view.deleteSupplierInComboBox(supplierId);
                      }

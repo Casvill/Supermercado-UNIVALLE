@@ -3,6 +3,7 @@ package view;
 import java.awt.event.ActionListener;
 import java.util.List;
 import javax.swing.table.DefaultTableModel;
+import model.Buy;
 import model.Customer;
 import model.Product;
 import model.Supplier;
@@ -20,6 +21,7 @@ public class MainView extends javax.swing.JFrame {
     DefaultTableModel modelSupplier;
     DefaultTableModel modelCustomer;
     DefaultTableModel modelProduct;
+    DefaultTableModel modelBuy;
     
     public MainView() 
     {
@@ -27,6 +29,7 @@ public class MainView extends javax.swing.JFrame {
         modelSupplier = (DefaultTableModel) jtSupplier.getModel();
         modelCustomer = (DefaultTableModel) jtCustomers.getModel();
         modelProduct = (DefaultTableModel) jtProduct.getModel();        
+        modelProduct = (DefaultTableModel) jtBuyRecords.getModel();        
         setLocationRelativeTo(null);
     }
     
@@ -106,6 +109,19 @@ public class MainView extends javax.swing.JFrame {
     public void addBtnDeleteCustomerListener(ActionListener listenerControllers)
     {
         jbDeleteCustomer.addActionListener(listenerControllers);
+    }
+    
+    //--------------------------------------------------------------------------------------------------
+    
+    
+    public void addBtnCleanFormBuyListener(ActionListener listenerControllers)
+    {
+        jbCleanFormBuy.addActionListener(listenerControllers);
+    }
+    
+    public void addBtnBuyListener(ActionListener listenerControllers)
+    {
+        jbBuy.addActionListener(listenerControllers);
     }
     
     //--------------------------------------------------------------------------------------------------
@@ -206,6 +222,7 @@ public class MainView extends javax.swing.JFrame {
         
         modelSupplier.addRow(new Object[]{id, name, surnames, phoneNumber});     
         addJcbSupplierProduct(name,id);
+        addJcbSupplierBuy(name,id);
     }
     
     public void updateSupplierInComboBox(String supplierId, String newName) 
@@ -488,7 +505,9 @@ public class MainView extends javax.swing.JFrame {
         int price = product.getPrice();
         int quantity = product.getQuantity();
         
-        modelProduct.addRow(new Object[]{id, name, supplier, price, quantity});        
+        modelProduct.addRow(new Object[]{id, name, supplier, price, quantity});  
+        addJcbProductBuy(name, id);
+        addJcbProductSell(name, id);
     }
     
     public void refreshProductsTable(List<Product> products)
@@ -515,6 +534,99 @@ public class MainView extends javax.swing.JFrame {
     {
         jcbSupplierProduct.addItem(name + "-" + id);
     }
+    
+    //BUY-----------------------------------------------------------------------------------------------
+    
+    public String getTextSupplierBuy()
+    {
+        return (String) jcbSupplierBuy.getSelectedItem();
+    }
+    
+    public void setTextSupplierBuy(String text)
+    {
+        jcbSupplierBuy.setSelectedItem(text);
+    }
+    
+    //----------------------------------------
+    
+    public String getTextProductBuy()
+    {
+        return (String) jcbProductBuy.getSelectedItem();
+    }
+    
+    public void setTextProductBuy(String text)
+    {
+        jcbProductBuy.setSelectedItem(text);
+    }
+    
+    //----------------------------------------
+    
+    public String getPriceBuy()
+    {
+        return jtfPriceBuy.getText();
+    }
+    
+    public void setPriceBuy(int text)
+    {
+        jtfPriceBuy.setText(String.valueOf(text));
+    }
+    
+    //----------------------------------------
+    
+    public int getQuantityBuy()
+    {
+        return (int) jsQuantityBuy.getValue();
+    }
+    
+    public void setQuantityBuy(int text)
+    {
+        jsQuantityBuy.setValue(text);
+    }
+
+    
+    //----------------------------------------
+    
+    public void cleanBuyForm()
+    {
+        jcbSupplierBuy.setSelectedIndex(-1);
+        jcbProductBuy.setSelectedIndex(-1);
+        jtfPriceBuy.setText("");
+        jsQuantityBuy.setValue(0);
+    }
+    
+    
+    public void addRecordBuy(Buy buy)
+    {
+        String supplier = buy.getSupplier();
+        String product = buy.getProduct();
+        int price = buy.getPrice();
+        int quantity = buy.getQuantity();
+        
+        modelBuy.addRow(new Object[]{supplier, product, price, quantity});    
+        cleanBuyForm();
+    }
+    
+    public void addJcbSupplierBuy(String name, String id)
+    {
+        jcbSupplierBuy.addItem(name + "-" + id);
+    }
+    
+    public void addJcbProductBuy(String name, String id)
+    {
+        jcbProductBuy.addItem(name + "-" + id);
+    }
+    
+    //--------------------------------------------------------------------------------------------------
+    
+    //SELL-----------------------------------------------------------------------------------------------    
+    
+    public void addJcbProductSell(String name, String id)
+    {
+        jcbProductSell.addItem(name + "-" + id);
+    }
+    
+    //--------------------------------------------------------------------------------------------------
+    
     //--------------------------------------------------------------------------------------------------
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -524,7 +636,7 @@ public class MainView extends javax.swing.JFrame {
         jpSell = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jComboBox4 = new javax.swing.JComboBox<>();
-        jComboBox5 = new javax.swing.JComboBox<>();
+        jcbProductSell = new javax.swing.JComboBox<>();
         jSpinner2 = new javax.swing.JSpinner();
         jButton18 = new javax.swing.JButton();
         jButton19 = new javax.swing.JButton();
@@ -532,27 +644,21 @@ public class MainView extends javax.swing.JFrame {
         jLabel23 = new javax.swing.JLabel();
         jLabel24 = new javax.swing.JLabel();
         jLabel25 = new javax.swing.JLabel();
-        jScrollPane6 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
-        jButton20 = new javax.swing.JButton();
-        jButton22 = new javax.swing.JButton();
         jTextField8 = new javax.swing.JTextField();
+        jLabel27 = new javax.swing.JLabel();
+        jTextField1 = new javax.swing.JTextField();
         jpBuy = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
-        jComboBox2 = new javax.swing.JComboBox<>();
+        jcbSupplierBuy = new javax.swing.JComboBox<>();
         jLabel11 = new javax.swing.JLabel();
-        jComboBox3 = new javax.swing.JComboBox<>();
+        jcbProductBuy = new javax.swing.JComboBox<>();
         jLabel12 = new javax.swing.JLabel();
-        jSpinner1 = new javax.swing.JSpinner();
-        jButton16 = new javax.swing.JButton();
-        jButton17 = new javax.swing.JButton();
+        jsQuantityBuy = new javax.swing.JSpinner();
+        jbCleanFormBuy = new javax.swing.JButton();
+        jbBuy = new javax.swing.JButton();
         jLabel19 = new javax.swing.JLabel();
-        jScrollPane7 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
-        jButton21 = new javax.swing.JButton();
-        jButton23 = new javax.swing.JButton();
-        jTextField7 = new javax.swing.JTextField();
+        jtfPriceBuy = new javax.swing.JTextField();
         jPanel3 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
@@ -615,6 +721,9 @@ public class MainView extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jScrollPane11 = new javax.swing.JScrollPane();
         jTable6 = new javax.swing.JTable();
+        jPanel2 = new javax.swing.JPanel();
+        jScrollPane12 = new javax.swing.JScrollPane();
+        jtBuyRecords = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(0, 0, 0));
@@ -632,70 +741,48 @@ public class MainView extends javax.swing.JFrame {
         jLabel1.setBounds(350, 20, 110, 60);
 
         jpSell.add(jComboBox4);
-        jComboBox4.setBounds(400, 80, 250, 26);
+        jComboBox4.setBounds(390, 180, 250, 26);
 
-        jpSell.add(jComboBox5);
-        jComboBox5.setBounds(400, 130, 250, 26);
+        jpSell.add(jcbProductSell);
+        jcbProductSell.setBounds(390, 230, 250, 26);
         jpSell.add(jSpinner2);
-        jSpinner2.setBounds(400, 260, 80, 26);
+        jSpinner2.setBounds(390, 360, 80, 26);
 
         jButton18.setText("SELL");
         jpSell.add(jButton18);
-        jButton18.setBounds(450, 580, 140, 27);
+        jButton18.setBounds(440, 540, 140, 27);
 
         jButton19.setText("CLEAN FORM");
         jpSell.add(jButton19);
-        jButton19.setBounds(230, 580, 130, 27);
+        jButton19.setBounds(220, 540, 130, 27);
 
         jLabel22.setText("QUANTITY:");
         jpSell.add(jLabel22);
-        jLabel22.setBounds(220, 270, 90, 16);
+        jLabel22.setBounds(210, 370, 90, 16);
 
-        jLabel23.setText("PRICE:");
+        jLabel23.setText("UNIT PRICE:");
         jpSell.add(jLabel23);
-        jLabel23.setBounds(220, 180, 150, 16);
+        jLabel23.setBounds(210, 280, 150, 16);
 
         jLabel24.setText("PRODUCT:");
         jpSell.add(jLabel24);
-        jLabel24.setBounds(220, 140, 150, 16);
+        jLabel24.setBounds(210, 240, 150, 16);
 
         jLabel25.setText("CUSTOMER:");
         jpSell.add(jLabel25);
-        jLabel25.setBounds(220, 90, 100, 16);
+        jLabel25.setBounds(210, 190, 100, 16);
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
-            },
-            new String [] {
-                "CUSTOMER", "PRODUCT ID", "PRODUCT NAME", "PRODUCT DESCRIPTION", "QUANTITY"
-            }
-        ) {
-            boolean[] canEdit = new boolean [] {
-                false, false, false, false, false
-            };
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
-        jScrollPane6.setViewportView(jTable1);
-
-        jpSell.add(jScrollPane6);
-        jScrollPane6.setBounds(70, 356, 740, 200);
-
-        jButton20.setText("ADD PRODUCT");
-        jpSell.add(jButton20);
-        jButton20.setBounds(400, 310, 190, 27);
-
-        jButton22.setText("DELETE PRODUCT");
-        jpSell.add(jButton22);
-        jButton22.setBounds(600, 310, 200, 27);
+        jTextField8.setEditable(false);
         jpSell.add(jTextField8);
-        jTextField8.setBounds(400, 170, 250, 26);
+        jTextField8.setBounds(390, 270, 250, 26);
+
+        jLabel27.setText("TOTAL:");
+        jpSell.add(jLabel27);
+        jLabel27.setBounds(210, 450, 130, 16);
+
+        jTextField1.setEditable(false);
+        jpSell.add(jTextField1);
+        jTextField1.setBounds(390, 440, 260, 26);
 
         jTabbedPane1.addTab("SELL", jpSell);
 
@@ -708,69 +795,37 @@ public class MainView extends javax.swing.JFrame {
 
         jLabel10.setText("SUPPLIER:");
         jpBuy.add(jLabel10);
-        jLabel10.setBounds(220, 80, 100, 16);
+        jLabel10.setBounds(220, 160, 100, 16);
 
-        jpBuy.add(jComboBox2);
-        jComboBox2.setBounds(400, 70, 250, 26);
+        jpBuy.add(jcbSupplierBuy);
+        jcbSupplierBuy.setBounds(400, 150, 250, 26);
 
         jLabel11.setText("PRODUCT:");
         jpBuy.add(jLabel11);
-        jLabel11.setBounds(220, 130, 130, 16);
+        jLabel11.setBounds(220, 210, 130, 16);
 
-        jpBuy.add(jComboBox3);
-        jComboBox3.setBounds(400, 120, 250, 26);
+        jpBuy.add(jcbProductBuy);
+        jcbProductBuy.setBounds(400, 200, 250, 26);
 
         jLabel12.setText("QUANTITY:");
         jpBuy.add(jLabel12);
-        jLabel12.setBounds(220, 280, 90, 16);
-        jpBuy.add(jSpinner1);
-        jSpinner1.setBounds(400, 270, 80, 26);
+        jLabel12.setBounds(220, 360, 90, 16);
+        jpBuy.add(jsQuantityBuy);
+        jsQuantityBuy.setBounds(400, 350, 80, 26);
 
-        jButton16.setText("CLEAN FORM");
-        jpBuy.add(jButton16);
-        jButton16.setBounds(200, 590, 150, 27);
+        jbCleanFormBuy.setText("CLEAN FORM");
+        jpBuy.add(jbCleanFormBuy);
+        jbCleanFormBuy.setBounds(200, 550, 150, 27);
 
-        jButton17.setText("BUY");
-        jpBuy.add(jButton17);
-        jButton17.setBounds(450, 590, 160, 27);
+        jbBuy.setText("BUY");
+        jpBuy.add(jbBuy);
+        jbBuy.setBounds(450, 550, 160, 27);
 
-        jLabel19.setText("PRICE:");
+        jLabel19.setText("UNIT PRICE:");
         jpBuy.add(jLabel19);
-        jLabel19.setBounds(220, 170, 150, 16);
-
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
-            },
-            new String [] {
-                "SUPPLIER", "PRODUCT ID", "PRODUCT NAME", "PRODUCT DESCRIPTION", "QUANTITY"
-            }
-        ) {
-            boolean[] canEdit = new boolean [] {
-                false, false, false, false, false
-            };
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
-        jScrollPane7.setViewportView(jTable2);
-
-        jpBuy.add(jScrollPane7);
-        jScrollPane7.setBounds(70, 356, 740, 200);
-
-        jButton21.setText("ADD PRODUCT");
-        jpBuy.add(jButton21);
-        jButton21.setBounds(400, 310, 190, 27);
-
-        jButton23.setText("DELETE PRODUCT");
-        jpBuy.add(jButton23);
-        jButton23.setBounds(600, 310, 200, 27);
-        jpBuy.add(jTextField7);
-        jTextField7.setBounds(400, 160, 250, 26);
+        jLabel19.setBounds(220, 270, 150, 16);
+        jpBuy.add(jtfPriceBuy);
+        jtfPriceBuy.setBounds(400, 260, 250, 26);
 
         jTabbedPane1.addTab("BUY", jpBuy);
 
@@ -1037,10 +1092,7 @@ public class MainView extends javax.swing.JFrame {
 
         jTable6.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
                 "Title 1", "Title 2", "Title 3", "Title 4"
@@ -1052,6 +1104,31 @@ public class MainView extends javax.swing.JFrame {
         jScrollPane11.setBounds(50, 30, 750, 580);
 
         jTabbedPane1.addTab("SALES RECORD", jPanel1);
+
+        jPanel2.setLayout(null);
+
+        jtBuyRecords.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "SUPPLIER", "PRODUCT", "PRICE", "QUANTITY"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, true, true
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane12.setViewportView(jtBuyRecords);
+
+        jPanel2.add(jScrollPane12);
+        jScrollPane12.setBounds(50, 30, 750, 580);
+
+        jTabbedPane1.addTab("BUYS RECORD", jPanel2);
 
         getContentPane().add(jTabbedPane1);
         jTabbedPane1.setBounds(0, 0, 850, 850);
@@ -1074,18 +1151,9 @@ public class MainView extends javax.swing.JFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton16;
-    private javax.swing.JButton jButton17;
     private javax.swing.JButton jButton18;
     private javax.swing.JButton jButton19;
-    private javax.swing.JButton jButton20;
-    private javax.swing.JButton jButton21;
-    private javax.swing.JButton jButton22;
-    private javax.swing.JButton jButton23;
-    private javax.swing.JComboBox<String> jComboBox2;
-    private javax.swing.JComboBox<String> jComboBox3;
     private javax.swing.JComboBox<String> jComboBox4;
-    private javax.swing.JComboBox<String> jComboBox5;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -1105,6 +1173,7 @@ public class MainView extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
+    private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -1113,23 +1182,22 @@ public class MainView extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane10;
     private javax.swing.JScrollPane jScrollPane11;
-    private javax.swing.JScrollPane jScrollPane6;
-    private javax.swing.JScrollPane jScrollPane7;
+    private javax.swing.JScrollPane jScrollPane12;
     private javax.swing.JScrollPane jScrollPane8;
     private javax.swing.JScrollPane jScrollPane9;
-    private javax.swing.JSpinner jSpinner1;
     private javax.swing.JSpinner jSpinner2;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTable jTable2;
     private javax.swing.JTable jTable6;
-    private javax.swing.JTextField jTextField7;
+    private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField8;
+    private javax.swing.JButton jbBuy;
+    private javax.swing.JButton jbCleanFormBuy;
     private javax.swing.JButton jbDeleteCustomer;
     private javax.swing.JButton jbDeleteProduct;
     private javax.swing.JButton jbListAllCustomer;
@@ -1145,10 +1213,15 @@ public class MainView extends javax.swing.JFrame {
     private javax.swing.JButton jbSupplierUpdate;
     private javax.swing.JButton jbUpdateCustomer;
     private javax.swing.JButton jbUpdateProduct;
+    private javax.swing.JComboBox<String> jcbProductBuy;
+    private javax.swing.JComboBox<String> jcbProductSell;
+    private javax.swing.JComboBox<String> jcbSupplierBuy;
     private javax.swing.JComboBox<String> jcbSupplierProduct;
     private javax.swing.JPanel jpBuy;
     private javax.swing.JPanel jpSell;
+    private javax.swing.JSpinner jsQuantityBuy;
     private javax.swing.JSpinner jsQuantityProduct;
+    private javax.swing.JTable jtBuyRecords;
     private javax.swing.JTable jtCustomers;
     private javax.swing.JTable jtProduct;
     private javax.swing.JTable jtSupplier;
@@ -1162,6 +1235,7 @@ public class MainView extends javax.swing.JFrame {
     private javax.swing.JTextField jtfNameSupplier;
     private javax.swing.JTextField jtfPhoneNumberCustomer;
     private javax.swing.JTextField jtfPhoneNumberSupplier;
+    private javax.swing.JTextField jtfPriceBuy;
     private javax.swing.JTextField jtfPriceProduct;
     private javax.swing.JTextField jtfProductNameProduct;
     private javax.swing.JTextField jtfSearchCustomer;
