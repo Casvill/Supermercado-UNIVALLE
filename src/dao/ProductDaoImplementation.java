@@ -1,5 +1,6 @@
 package dao;
 
+import backupSystem.BackupSystem;
 import java.util.ArrayList;
 import java.util.List;
 import model.Product;
@@ -11,10 +12,16 @@ import model.Product;
 public class ProductDaoImplementation implements IProductDao
 {
     List<Product> products;
+    BackupSystem backup = new BackupSystem();
     
     public ProductDaoImplementation()
     {
         this.products = new ArrayList<>();
+    }
+    
+    public void doBackup()
+    {
+        this.backup.saveDataProduct(products);
     }
     
     @Override
@@ -52,6 +59,7 @@ public class ProductDaoImplementation implements IProductDao
         }
         
         products.add(product);
+        doBackup();
         return true;
     }
 
@@ -64,7 +72,7 @@ public class ProductDaoImplementation implements IProductDao
             {
                 int pos = products.indexOf(productB);
                 products.set(pos, product);
-            
+                doBackup();
                 return true;
             }
         }
@@ -81,9 +89,10 @@ public class ProductDaoImplementation implements IProductDao
             {
                 int pos = products.indexOf(productB);
                 products.remove(pos);
+                doBackup();
                 return true;
             }
         }
         return false;
-    }
+    }    
 }

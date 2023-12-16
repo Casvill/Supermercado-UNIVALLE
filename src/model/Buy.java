@@ -1,11 +1,14 @@
 package model;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Daniel Casvill
  */
-public class Buy 
+public class Buy implements Serializable
 {
+    public static final long serialVersionUID = 1L;
     private String supplier;
     private String product;
     private int price;

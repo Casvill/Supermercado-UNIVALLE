@@ -1,5 +1,6 @@
 package dao;
 
+import backupSystem.BackupSystem;
 import java.util.ArrayList;
 import java.util.List;
 import model.Supplier;
@@ -11,12 +12,18 @@ import model.Supplier;
 public class SupplierDaoImplementation implements ISupplierDao
 {
     List<Supplier> suppliers;
+    BackupSystem backup = new BackupSystem();
+
     
     public SupplierDaoImplementation()
     {
         this.suppliers = new ArrayList<>();
     }
     
+    public void doBackup()
+    {
+        this.backup.saveDataSupplier(suppliers);
+    }
 
     @Override
     public List<Supplier> getAllSuppliers() 
@@ -53,6 +60,7 @@ public class SupplierDaoImplementation implements ISupplierDao
         }
         
         suppliers.add(supplier);
+        doBackup();
         return true;
     }
 
@@ -65,7 +73,7 @@ public class SupplierDaoImplementation implements ISupplierDao
             {
                 int pos = suppliers.indexOf(supplierB);
                 suppliers.set(pos, supplier);
-            
+                doBackup();
                 return true;
             }
         }
@@ -82,6 +90,7 @@ public class SupplierDaoImplementation implements ISupplierDao
             {
                 int pos = suppliers.indexOf(supplierB);
                 suppliers.remove(pos);
+                doBackup();
                 return true;
             }
         }

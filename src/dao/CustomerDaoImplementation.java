@@ -1,5 +1,6 @@
 package dao;
 
+import backupSystem.BackupSystem;
 import java.util.ArrayList;
 import java.util.List;
 import model.Customer;
@@ -11,10 +12,16 @@ import model.Customer;
 public class CustomerDaoImplementation implements ICustomerDao
 {
     List<Customer> customers;
+    BackupSystem backup = new BackupSystem();
     
     public CustomerDaoImplementation()
     {
         this.customers = new ArrayList<>();
+    }
+    
+    public void doBackup()
+    {
+        this.backup.saveDataCustomer(customers);
     }
     
     @Override
@@ -52,6 +59,7 @@ public class CustomerDaoImplementation implements ICustomerDao
         }
         
         customers.add(customer);
+        doBackup();
         return true;
     }
 
@@ -64,7 +72,7 @@ public class CustomerDaoImplementation implements ICustomerDao
             {
                 int pos = customers.indexOf(customerB);
                 customers.set(pos, customer);
-            
+                doBackup();
                 return true;
             }
         }
@@ -81,7 +89,7 @@ public class CustomerDaoImplementation implements ICustomerDao
             {
                 int pos = customers.indexOf(customerB);
                 customers.remove( pos);
-            
+                doBackup();
                 return true;
             }
         }

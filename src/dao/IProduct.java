@@ -1,8 +1,9 @@
-package model;
+package dao;
 
 import dao.IProductDao;
 import dao.ProductDaoImplementation;
 import java.util.List;
+import model.Product;
 
 /**
  *
