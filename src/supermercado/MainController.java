@@ -1,6 +1,5 @@
 package supermercado;
 
-import backupSystem.BackupSystem;
 import controller.BuyController;
 import controller.CustomerController;
 import controller.ProductController;
