@@ -15,13 +15,25 @@ public class SellDaoImplementation implements ISellDao
     BackupSystem backup = new BackupSystem();
 
     public SellDaoImplementation() 
-    {
-        this.sells = new ArrayList<>();
+    {        
+        try
+        {
+            this.sells = backup.loadDataSell();
+        }
+        catch(Exception exception)
+        {
+            this.sells = new ArrayList<>();
+        }
     }        
     
     public void doBackup()
     {
         this.backup.saveDataSell(sells);
+    }
+    
+    public List<Sell> restoreData()
+    {
+        return backup.loadDataSell();
     }
     
     @Override

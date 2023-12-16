@@ -16,8 +16,15 @@ public class SupplierDaoImplementation implements ISupplierDao
 
     
     public SupplierDaoImplementation()
-    {
-        this.suppliers = new ArrayList<>();
+    {        
+        try
+        {
+            this.suppliers = backup.loadDataSupplier();
+        }
+        catch(Exception exception)
+        {
+            this.suppliers = new ArrayList<>();
+        }
     }
     
     public void doBackup()

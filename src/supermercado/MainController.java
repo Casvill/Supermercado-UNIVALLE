@@ -11,8 +11,6 @@ import dao.CustomerDaoImplementation;
 import dao.ProductDaoImplementation;
 import dao.SellDaoImplementation;
 import dao.SupplierDaoImplementation;
-import java.util.List;
-import model.Buy;
 import view.MainView;
 
 /**
@@ -23,11 +21,7 @@ public class MainController
 {
     public static void main(String args[]) 
     {
-        MainView view = new MainView();   
-        BackupSystem backup = new BackupSystem();
-        List<Buy> buys = null;
-        buys = backup.loadDataBuy();
-        System.out.println(buys.get(0).getSupplier());
+        MainView view = new MainView();           
         
         new SupplierController(new SupplierDaoImplementation(), view);                
         new CustomerController(new CustomerDaoImplementation(), view);                

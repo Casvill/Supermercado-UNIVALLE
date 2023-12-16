@@ -36,6 +36,16 @@ public class MainView extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }
     
+    public void addBtnRefreshBuysListener(ActionListener listenControllers)
+    {
+        jbRefreshBuys.addActionListener(listenControllers);
+    }
+       
+    public void addBtnRefreshSalesListener(ActionListener listenControllers)
+    {
+        jbRefreshSales.addActionListener(listenControllers);
+    }
+    
     //--------------------------------------------------------------------------------------------------
     public void addBtnSaveProductListener(ActionListener listenControllers)
     {
@@ -303,6 +313,9 @@ public class MainView extends javax.swing.JFrame {
     
     public void refreshSuppliersTable(List<Supplier> suppliers)
     {
+        jcbSupplierProduct.removeAllItems();
+        jcbSupplierBuy.removeAllItems();
+        
         int rowCount = modelSupplier.getRowCount();
         for (int i = rowCount - 1; i >= 0; i--) 
         {
@@ -317,6 +330,8 @@ public class MainView extends javax.swing.JFrame {
             String phoneNumber = supplier.getPhoneNumber();
 
             modelSupplier.addRow(new Object[]{id, name, surnames, phoneNumber}); 
+            jcbSupplierProduct.addItem(name + " - " + id);
+            jcbSupplierBuy.addItem(name + " - " + id);
         }
     }
     //--------------------------------------------------------------------------------------------------
@@ -454,6 +469,7 @@ public class MainView extends javax.swing.JFrame {
     
     public void refreshCustomersTable(List<Customer> customers)
     {
+        jcbCustomerSell.removeAllItems();
         int rowCount = modelCustomer.getRowCount();
         for (int i = rowCount - 1; i >= 0; i--) 
         {
@@ -468,6 +484,7 @@ public class MainView extends javax.swing.JFrame {
             String phoneNumber = customer.getPhoneNumber();
 
             modelCustomer.addRow(new Object[]{id, name, surnames, phoneNumber}); 
+            jcbCustomerSell.addItem(name + " - " + id);
         }
     }
     //--------------------------------------------------------------------------------------------------
@@ -649,6 +666,9 @@ public class MainView extends javax.swing.JFrame {
     
     public void refreshProductsTable(List<Product> products)
     {
+        jcbProductBuy.removeAllItems();
+        jcbProductSell.removeAllItems();
+
         int rowCount = modelProduct.getRowCount();
         for (int i = rowCount - 1; i >= 0; i--) 
         {
@@ -664,12 +684,15 @@ public class MainView extends javax.swing.JFrame {
             int quantity = product.getQuantity();
 
             modelProduct.addRow(new Object[]{id, name, supplier, price, quantity});        
+            jcbProductBuy.addItem(name + " - " + id);
+            jcbProductSell.addItem(name + " - " + id);
         }
+
     }
     
     public void addJcbSupplierProduct(String name, String id)
     {
-        jcbSupplierProduct.addItem(name + "-" + id);
+        jcbSupplierProduct.addItem(name + " - " + id);
     }
     
     //BUY-----------------------------------------------------------------------------------------------
@@ -752,6 +775,25 @@ public class MainView extends javax.swing.JFrame {
         jcbProductBuy.addItem(name + " - " + id);
     }
     
+    public void refreshBuysTable(List<Buy> buys)
+    {
+        int rowCount = modelBuy.getRowCount();
+        for (int i = rowCount - 1; i >= 0; i--) 
+        {
+            modelBuy.removeRow(i);
+        }
+        
+        for(Buy buy: buys)
+        {
+            String supplier = buy.getSupplier();
+            String product = buy.getProduct();
+            int price = buy.getPrice();
+            int quantity = buy.getQuantity();
+
+            modelBuy.addRow(new Object[]{supplier,product,price,quantity}); 
+        }
+    }
+    
     //--------------------------------------------------------------------------------------------------
     
     //SELL-----------------------------------------------------------------------------------------------    
@@ -832,6 +874,25 @@ public class MainView extends javax.swing.JFrame {
     public void addJcbProductSell(String name, String id)
     {
         jcbProductSell.addItem(name + " - " + id);
+    }
+    
+    public void refreshSalesTable(List<Sell> sales)
+    {
+        int rowCount = modelSell.getRowCount();
+        for (int i = rowCount - 1; i >= 0; i--) 
+        {
+            modelSell.removeRow(i);
+        }
+        
+        for(Sell sell: sales)
+        {
+            String customer = sell.getCustomer();
+            String product = sell.getProduct();
+            int price = sell.getUnitPrice();
+            int quantity = sell.getQuantity();
+
+            modelSell.addRow(new Object[]{customer,product,price,quantity}); 
+        }
     }
     
     //--------------------------------------------------------------------------------------------------
@@ -928,9 +989,11 @@ public class MainView extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jScrollPane11 = new javax.swing.JScrollPane();
         jtSales = new javax.swing.JTable();
+        jbRefreshSales = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane12 = new javax.swing.JScrollPane();
         jtBuyRecords = new javax.swing.JTable();
+        jbRefreshBuys = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(0, 0, 0));
@@ -1308,6 +1371,10 @@ public class MainView extends javax.swing.JFrame {
         jPanel1.add(jScrollPane11);
         jScrollPane11.setBounds(50, 30, 750, 580);
 
+        jbRefreshSales.setText("REFRESH");
+        jPanel1.add(jbRefreshSales);
+        jbRefreshSales.setBounds(359, 620, 160, 27);
+
         jTabbedPane1.addTab("SALES RECORD", jPanel1);
 
         jPanel2.setLayout(null);
@@ -1332,6 +1399,10 @@ public class MainView extends javax.swing.JFrame {
 
         jPanel2.add(jScrollPane12);
         jScrollPane12.setBounds(50, 30, 750, 580);
+
+        jbRefreshBuys.setText("REFRESH");
+        jPanel2.add(jbRefreshBuys);
+        jbRefreshBuys.setBounds(359, 620, 160, 27);
 
         jTabbedPane1.addTab("BUYS RECORD", jPanel2);
 
@@ -1400,6 +1471,8 @@ public class MainView extends javax.swing.JFrame {
     private javax.swing.JButton jbDeleteProduct;
     private javax.swing.JButton jbListAllCustomer;
     private javax.swing.JButton jbListAllProduct;
+    private javax.swing.JButton jbRefreshBuys;
+    private javax.swing.JButton jbRefreshSales;
     private javax.swing.JButton jbSaveCustomer;
     private javax.swing.JButton jbSaveProduct;
     private javax.swing.JButton jbSearchCustomer;

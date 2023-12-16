@@ -15,13 +15,25 @@ public class BuyDaoImplementation implements IBuyDao
     BackupSystem backup = new BackupSystem();
 
     public BuyDaoImplementation() 
-    {
-        this.buys = new ArrayList<>();
+    {        
+        try
+        {
+            this.buys = backup.loadDataBuy();
+        }
+        catch(Exception exception)
+        {
+            this.buys = new ArrayList<>();
+        }
     }        
     
     public void doBackup()
     {
         backup.saveDataBuy(buys);
+    }
+    
+    public List<Buy> restoreData()
+    {
+        return backup.loadDataBuy();
     }
 
     @Override

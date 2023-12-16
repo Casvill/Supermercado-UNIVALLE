@@ -27,6 +27,9 @@ public class BuyController
         
         this.view.addBtnBuyListener(new BuyListener());
         this.view.addBtnCleanFormBuyListener(new BuyListener());
+        this.view.addBtnRefreshBuysListener(new BuyListener());
+        
+        this.view.refreshBuysTable(buyDao.restoreData());
     }
     
     //--------------------------------------------------------------------------------------------------
@@ -98,6 +101,14 @@ public class BuyController
             {
                 view.cleanBuyForm();
             }
+            
+            //------------------------------------------------------------------------------------
+            
+            if(e.getActionCommand().equalsIgnoreCase("REFRESH"))
+            {
+                view.refreshBuysTable(buyDao.restoreData());
+            }
+            //------------------------------------------------------------------------------------
         }
         
         //------------------------------------------------------------------------------------

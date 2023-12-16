@@ -15,8 +15,15 @@ public class CustomerDaoImplementation implements ICustomerDao
     BackupSystem backup = new BackupSystem();
     
     public CustomerDaoImplementation()
-    {
-        this.customers = new ArrayList<>();
+    {        
+        try
+        {
+            this.customers = backup.loadDataCustomer();
+        }
+        catch(Exception exception)
+        {
+            this.customers = new ArrayList<>();
+        }
     }
     
     public void doBackup()

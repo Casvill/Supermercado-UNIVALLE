@@ -33,6 +33,8 @@ public class SupplierController
         this.view.addBtnListAllSupplierListener(new SupplierListener());
         this.view.addBtnSearchSupplierListener(new SupplierListener());
         this.view.addBtnUpdateSupplierListener(new SupplierListener());
+        
+        this.view.refreshSuppliersTable(getSuppliers());
     }
     //--------------------------------------------------------------------------------------------------
     

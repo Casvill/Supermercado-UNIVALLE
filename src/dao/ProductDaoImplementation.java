@@ -15,8 +15,15 @@ public class ProductDaoImplementation implements IProductDao
     BackupSystem backup = new BackupSystem();
     
     public ProductDaoImplementation()
-    {
-        this.products = new ArrayList<>();
+    {       
+        try
+        {
+            this.products = backup.loadDataProduct();
+        }
+        catch(Exception exception)
+        {
+            this.products = new ArrayList<>();
+        }
     }
     
     public void doBackup()

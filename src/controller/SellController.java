@@ -27,6 +27,9 @@ public class SellController
         
         this.view.addBtnCleanFormSellListener(new SellListener());
         this.view.addBtnSellListener(new SellListener());
+        this.view.addBtnRefreshSalesListener(new SellListener());
+        
+        this.view.refreshSalesTable(sellDao.restoreData());
     }
     
     //--------------------------------------------------------------------------------------------------    
@@ -96,6 +99,12 @@ public class SellController
                 view.cleanSellForm();
             }
             
+            //------------------------------------------------------------------------------------
+            
+            if(e.getActionCommand().equalsIgnoreCase("REFRESH"))
+            {
+                view.refreshSalesTable(sellDao.restoreData());
+            }
             //------------------------------------------------------------------------------------
         }
         

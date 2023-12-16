@@ -32,6 +32,8 @@ public class ProductController
         this.view.addBtnListAllProductListener(new ProductListener());
         this.view.addBtnSearchProductListener(new ProductListener());
         this.view.addBtnUpdateProductListener(new ProductListener());
+        
+        this.view.refreshProductsTable(getProducts());
     }
     //--------------------------------------------------------------------------------------------------
     

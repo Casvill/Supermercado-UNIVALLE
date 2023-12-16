@@ -29,7 +29,9 @@ public class CustomerController
         this.view.addBtnUpdateCustomerListener(new CustomerListener());
         this.view.addBtnListAllCustomerListener(new CustomerListener());
         this.view.addBtnSearchCustomerListener(new CustomerListener());
-        this.view.addBtnDeleteCustomerListener(new CustomerListener());                
+        this.view.addBtnDeleteCustomerListener(new CustomerListener());       
+        
+        this.view.refreshCustomersTable(customerDao.getAllCustomers());
     }
     //--------------------------------------------------------------------------------------------------
     
